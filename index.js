@@ -11,7 +11,7 @@ const TOKEN = process.env.TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
 const GUILD_ID =process.env.GUILD_ID;
 
-//intents from discord api
+//intents from discord js api
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -30,6 +30,7 @@ for(const file of commandFiles) {
     commands.push(command.data.toJSON());
     client.commands.set(command.data.name, command);
 }
+
 //these are the categories available for waifuPics
 const {waifuPicOptions, waifuPicOptionsGifs}  = require('./config.json');
 /* 
@@ -63,9 +64,8 @@ setupFile.setup;
 const eventFiles = fs.readdirSync("./events").filter(file => file.endsWith('.js'));
 
 /* 
-    Whenever user creates a message in discord channel, listen for specific messages, all these functions have api limits to them
+    Whenever user creates a message in discord channel, listen for specific messages
 */
-//generated events that do not involve rate limiting
 for(const file of eventFiles){
     const event = require(`./events/${file}`);
     if(event.once){
