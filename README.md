@@ -1,3 +1,3 @@
-# Anime-Bot
+# Zaregoto
 
-test
+
