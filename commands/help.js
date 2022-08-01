@@ -3,16 +3,13 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('help')
-        .setDescription('Help Menu.')	
+        .setDescription('Help Menu')	
         .addStringOption(option =>
             option.setName('visibility')
             .addChoices(
-				{ name: 'private', value: 'sends help menu by DM' },
-				{ name: 'public', value: 'sends help menu in channel (Default)' },
+                { name: 'public', value: 'public' },
+				{ name: 'private', value: 'private' },
             )
-                .setDescription('Set DM for dm message or channel to post it in channel')
+                .setDescription('Set the visibility of the help menu')
                 .setRequired(false)),
-    async execute(interaction) {
-        
-    }
 }

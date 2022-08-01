@@ -1,21 +1,44 @@
 const { EmbedBuilder } = require('discord.js');
 
-module.exports.help = async(message, myType) => {
+module.exports.help = async(message, myType, visibility) => {
     const exampleEmbed = new EmbedBuilder()
 	.setColor(0x0099FF)
 	.setTitle('Zaregoto')
-	.setURL('https://discord.js.org/')
+	.setURL('https://github.com/ReStartQ/zaregoto')
 	.setDescription('Help Menu')
 	.addFields(
-		{ name: '**?theme**:', value: 'Random anime op/ed theme song video.' },
-		{ name: '**?quote**:', value: 'Random anime quote.' },
-		{ name: '**?pic**:', value: 'Random anime picture.'},
-		{ name: '**?fact**:', value: 'Random anime fact.'},
-        { name: '**?gif**:', value: 'Random anime gif.'},
-        { name: '**?gif-option**:', value: 'Random anime gif based off of option specified.'},
-        { name: '__Replace **option** with one of the following below__:', value: 'hug, cuddle, dance, poke, happy, wink, smile, wave, cry, kiss, lick, pat, smug, bully, bonk, yeet, blush, highfive, handhold, nom, bite, glomp, slap, kill, kick, cringe'},
-        { name: '**?zaregoto**:', value: 'Random command.'},
-        { name: '**?help**:', value: 'The help menu.'},
+		{   
+            name: '**?theme**:', 
+            value: 'Random anime op/ed theme song video.' 
+        },
+		{ 
+            name: '**?quote**:', 
+            value: 'Random anime quote.' 
+        },
+		{   
+            name: '**?pic**:', 
+            value: 'Random anime picture.'
+        },
+		{   
+            name: '**?fact**:', 
+            value: 'Random anime fact.'
+        },
+        { 
+            name: '**?gif**:', 
+            value: 'Random anime gif.'
+        },
+        { 
+            name: '**?gif-option**:', 
+            value: 'Random anime gif based off of option specified.'
+        },
+        { 
+            name: '__Replace **-option** with one of the following below__:', 
+            value: '-hug, -cuddle, -dance, -poke, -happy, -wink, -smile, -wave, -cry, -kiss, -lick, -pat, -smug, -bully, -bonk, -yeet, -blush, -highfive, -handhold, -nom, -bite, -glomp, -slap, -kill, -kick, -cringe'
+        },
+        { 
+            name: '**?help**:', 
+            value: 'The help menu.'
+        },
 	);
     if(myType===0){
         message.channel.send(
@@ -23,7 +46,12 @@ module.exports.help = async(message, myType) => {
         );
     }
     else{
-        message.reply({embeds:[exampleEmbed]})
+        if(visibility){
+            message.reply({embeds:[exampleEmbed], ephemeral: visibility})
+        }
+        else{
+            message.reply({embeds:[exampleEmbed]})
+        }
     }
 }
 

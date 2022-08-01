@@ -3,8 +3,5 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('fact')
-        .setDescription('Random anime fact.'),
-    async execute(interaction) {
-        
-    }
+        .setDescription('Random anime fact'),
 }

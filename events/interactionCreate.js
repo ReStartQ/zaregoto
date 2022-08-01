@@ -2,10 +2,6 @@ module.exports = {
     name: 'interactionCreate',
     once: false,
     async execute (interaction, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpChannel, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote) {
-        if (interaction.isChatInputCommand()) {
-            console.log('command coming');
-        }
-
         const { commandName, options } = interaction;
 
         switch(commandName){
@@ -22,19 +18,15 @@ module.exports = {
                 fetchAnimeFact(interaction,1);
                 break;
             case 'help':
-                console.log(options);
                 if(options._hoistedOptions.length==0){
-                    console.log('default')
-                    help(interaction, 1);
+                    help(interaction, 1, false);
                 }
                 else{
-                    if(options._hoistedOptions[0].value==='sends help menu by DM'){
-                        console.log('dm');
-                        help(interaction, 1);
+                    if(options._hoistedOptions[0].value==='private'){
+                        help(interaction, 1, true);
                     }
                     else{
-                        console.log('channel');
-                        help(interaction, 1);
+                        help(interaction, 1, false);
                     }
                 }
                 break;

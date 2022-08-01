@@ -22,7 +22,7 @@ module.exports = {
                 await waifuPicGifOptionMenu(message);
                 break;
             case '?help':
-                help(message, 0, true);
+                help(message, 0, false);
                 break;
             case '?help-dm':
                 helpDM(message);
