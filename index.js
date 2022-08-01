@@ -48,8 +48,6 @@ const { fetchRandomTheme } = require('./functions/fetchRandomTheme');
 const { fetchRandomQuote } = require('./functions/fetchRandomQuote');
 
 
-
-
 const helpersFiles = fs.readdirSync("./helpers").filter(file => file.endsWith('.js'));
 
 const rest = new REST({ version: '10' }).setToken(TOKEN);
@@ -59,7 +57,6 @@ for(const file of helpersFiles){
 }
 const setupFile = require('./helpers/setup');
 setupFile.setup;
-
 
 const eventFiles = fs.readdirSync("./events").filter(file => file.endsWith('.js'));
 
@@ -74,7 +71,6 @@ for(const file of eventFiles){
         client.on(event.name, async (...args) => event.execute(...args, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpDM, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote));
     }
 }
-
 
 //animethemes rate limit is 90 per minute.
 global.animeThemesCounter = 80;
