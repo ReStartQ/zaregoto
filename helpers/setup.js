@@ -2,7 +2,7 @@ module.exports = async function setup(client, Routes, TOKEN, CLIENT_ID, GUILD_ID
     // code here
     try {
         console.log('Slash Commands');
-        await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {
+        await rest.put(Routes.applicationCommands(CLIENT_ID), {
           body: commands,
         });
         //login
