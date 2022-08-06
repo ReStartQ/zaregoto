@@ -3,7 +3,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('gif')
-        .setDescription('Random anime gif')
+        .setDescription('Get an anime gif')
         .addStringOption(option =>
             option.setName('type')
             .addChoices(

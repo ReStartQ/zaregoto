@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const urlAnimeThemes = "https://api.animethemes.moe/video/?sort=random";
+const urlAnimeThemes = "https://api.animethemes.moe/video/?q=random";
 
 module.exports.fetchRandomTheme = async(message, myType) => {
     if(animeThemesCounter>0){
@@ -41,3 +41,4 @@ module.exports.fetchRandomTheme = async(message, myType) => {
         }
     }
 }
+

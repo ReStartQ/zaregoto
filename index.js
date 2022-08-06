@@ -46,7 +46,9 @@ const { fetchAnimeFact } = require('./functions/fetchAnimeFact');
 const { fetchWaifuPicGifOption } = require('./functions/fetchWaifuPicGifOption');
 const { fetchRandomTheme } = require('./functions/fetchRandomTheme');
 const { fetchRandomQuote } = require('./functions/fetchRandomQuote');
-
+const { fetchRandomAnime } = require('./functions/fetchRandomAnime');
+const { fetchRandomManga } = require('./functions/fetchRandomManga');
+const { fetchAnime } = require('./functions/fetchAnime');
 
 const helpersFiles = fs.readdirSync("./helpers").filter(file => file.endsWith('.js'));
 
@@ -68,9 +70,28 @@ for(const file of eventFiles){
     if(event.once){
         client.once(event.name, async (...args) => event.execute(...args, commands));
     } else {
-        client.on(event.name, async (...args) => event.execute(...args, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpDM, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote));
+        client.on(event.name, async (...args) => event.execute(...args, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpDM, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote, fetchRandomAnime, fetchRandomManga, fetchAnime));
     }
 }
+
+//Jikan API for MAL
+//Per Minute 60 requests
+//Per Second 3 requests
+global.jikanMinuteCounter=50;
+global.jikanSecondCounter=2;
+global.jikanRandomAnime=[];
+global.jikanRandomManga=[];
+
+setInterval(() => {
+    jikanMinuteCounter=50;
+    jikanRandomAnime=[];
+    jikanRandomManga=[];
+}, 60*1000);
+
+setInterval(() => {
+    jikanSecondCounter=2;
+}, 1000);
+
 
 //animethemes rate limit is 90 per minute.
 global.animeThemesCounter = 80;

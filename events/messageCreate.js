@@ -1,7 +1,9 @@
+const { fetchManga } = require("../functions/fetchManga");
+
 module.exports = {
     name: 'messageCreate',
     once: false,
-    async execute (message, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpDM, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote) {
+    async execute (message, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpDM, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote, fetchRandomAnime, fetchRandomManga, fetchAnime) {
         switch(message.content.toLocaleLowerCase()){
             case '?theme':
                 await fetchRandomTheme(message, 0);
@@ -27,6 +29,12 @@ module.exports = {
             case '?help-dm':
                 helpDM(message);
                 break;
+            case '?anime':
+                fetchRandomAnime(message,0);
+                break;
+            case '?manga':
+                fetchRandomManga(message,0);
+                break;
             default:
         }
         //gif-options
@@ -35,8 +43,22 @@ module.exports = {
             let myOption = message.content.toLocaleLowerCase().substring(myStartsWithIndex, message.content.toLocaleLowerCase().length);
             console.log(myOption);
             if(waifuPicOptionsGifs.includes(myOption)){ //check to see if its one of the options
-                await fetchWaifuPicGifOption(message, myOption, myType);
+                await fetchWaifuPicGifOption(message, myOption, 0);
             }
+        }
+        //anime-name
+        if(message.content.toLocaleLowerCase().startsWith('?anime-')){ //7 characters
+            let myStartsWithIndex = 7; //this number will change depending on the command
+            let myOption = message.content.toLocaleLowerCase().substring(myStartsWithIndex, message.content.toLocaleLowerCase().length);
+            console.log(myOption);
+            await fetchAnime(message, myOption, 0);
+        }
+        //anime-name
+        if(message.content.toLocaleLowerCase().startsWith('?manga-')){ //7 characters
+            let myStartsWithIndex = 7; //this number will change depending on the command
+            let myOption = message.content.toLocaleLowerCase().substring(myStartsWithIndex, message.content.toLocaleLowerCase().length);
+            console.log(myOption);
+            await fetchManga(message, myOption, 0);
         }
     }
 }

@@ -64,20 +64,3 @@ module.exports.helpDM = async(message) => {
     );
 }
 
-/* message.channel.send(
-    'Check your **DM** for the help menu.'
-);
-message.author.send(
-    '**Help Menu** \n' +
-    '__**Commands:**__ \n' +
-    '**?theme**: Random anime op/ed theme song video. \n \n' +
-    '**?quote**: Random anime quote. \n \n' +
-    '**?pic**: Random anime picture. \n \n' +
-    '**?fact**: Random anime fact. \n \n' +
-    '**?gif**: Random anime gif. \n \n' +
-    '**?gif-option**: Random anime gif based off of option specified.\n' +
-    '__Replace **option** with one of the following below__: \n' +
-    'hug, cuddle, dance, poke, happy, wink, smile, wave, cry, kiss, lick, pat, smug, bully, bonk, yeet, blush, highfive, handhold, nom, bite, glomp, slap, kill, kick, cringe \n \n' +
-    '**?zaregoto**: Random command. \n \n'+
-    '**?help**: The help menu.'
-); */

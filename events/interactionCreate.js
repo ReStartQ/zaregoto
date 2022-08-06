@@ -1,7 +1,9 @@
+const { fetchManga } = require("../functions/fetchManga");
+
 module.exports = {
     name: 'interactionCreate',
     once: false,
-    async execute (interaction, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpChannel, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote) {
+    async execute (interaction, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpChannel, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote, fetchRandomAnime, fetchRandomManga, fetchAnime) {
         const { commandName, options } = interaction;
 
         switch(commandName){
@@ -38,8 +40,25 @@ module.exports = {
                     fetchWaifuPicGifOption(interaction, options._hoistedOptions[0].value, 1);
                 }
                 break;
+            case 'anime':
+                if(options._hoistedOptions.length==0){
+                    fetchRandomAnime(interaction,1);
+                }
+                else{
+                    console.log(options._hoistedOptions[0].value);
+                    fetchAnime(interaction, options._hoistedOptions[0].value, 1);
+                }
+                break;
+            case 'manga':
+                if(options._hoistedOptions.length==0){
+                    fetchRandomManga(interaction,1);
+                }
+                else{
+                    console.log(options._hoistedOptions[0].value);
+                    fetchManga(interaction, options._hoistedOptions[0].value, 1);
+                }
+                break;
         }
-
     }
 }
 

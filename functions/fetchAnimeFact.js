@@ -43,30 +43,3 @@ module.exports.fetchAnimeFact = async(message, myType) => {
     }
 }
 
-//const AnimeFactAPI = new AnimeFact(process.env.ANIME_FACT_TOKEN);
-/* //Anime Facts from AnimuAPI
-let fetchAnimeFact = async (message) =>{
-    if(animuCounter>0){
-        animuCounter -= 1;
-        try {
-            await AnimeFactAPI.getFact().then((res) => {
-                message.channel.send(
-                    res.fact
-                );
-                animuFacts.push(
-                    res.fact
-                );
-                console.log(res.fact);
-            });   
-        } catch (error) {
-            console.log('Animu API down');
-        }
-    }
-    else{
-        if(animuFacts>0){
-            message.channel.send(
-                animuFacts[Math.floor(Math.random()*animuFacts.length)]
-            );
-        }
-    }
-}; */

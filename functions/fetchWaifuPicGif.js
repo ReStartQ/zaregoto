@@ -34,23 +34,3 @@ module.exports.fetchWaifuPicGif = async(message, myType) => {
     }
 }
 
-/* let fetchWaifuPicGif = async (message) => {
-    let myOption = waifuPicOptionsGifs[Math.floor(Math.random()*waifuPicOptionsGifs.length)];
-    
-    if((Math.floor(Math.random()*20))>16){
-        await fetchAnimeImageGif(message);
-    }
-    else{
-        try {
-            await fetch(urlWaifuPics+myOption)
-            .then(res => res.json())
-            .then(data => 
-                message.channel.send(
-                    data.url
-                ));
-            console.log(urlWaifuPics+myOption);   
-        } catch (error) {
-            console.log('Waifu.pics API is currently down');
-        }
-    }
-}; */

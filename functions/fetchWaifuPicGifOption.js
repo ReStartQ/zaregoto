@@ -26,18 +26,3 @@ module.exports.fetchWaifuPicGifOption = async(message, option, myType) => {
         console.log('Waifu.pics API is currently down');
     }
 }
-
-//gif with option
-/* let fetchWaifuPicGifOption = async (message, option) => {
-    try {
-        await fetch(urlWaifuPics+option)
-        .then(res => res.json())
-        .then(data => 
-            message.channel.send(
-                data.url
-            ));
-        console.log(urlWaifuPics+option);   
-    } catch (error) {
-        console.log('Waifu.pics API is currently down');
-    }
-}; */
