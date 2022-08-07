@@ -9,12 +9,28 @@ module.exports.help = async(message, myType, visibility) => {
 	.setDescription('Help Menu')
 	.addFields(
 		{   
+            name: '?anime or /anime:', 
+            value: 'Gives an anime or lookup an anime with /anime. The name option for /anime has the same function as ?anime-name.' 
+        },
+        { 
+            name: '?anime-name:', 
+            value: 'Look up an anime based on the name given. Replace name with the name of the anime that you are looking up.'
+        },
+        {   
+            name: '?manga or /manga:', 
+            value: 'Gives a manga or light novel or lookup a manga or light novel with /anime. The name option for /manga has the same function as ?manga-name.' 
+        },
+        { 
+            name: '?manga-name:', 
+            value: 'Look up a manga or light novel based on the name given. Replace name with the name of the manga or light novel that you are looking up.'
+        },
+		{   
             name: '?theme or /theme:', 
-            value: 'Random anime op/ed theme song video.' 
+            value: 'Gives an anime op/ed theme song video.' 
         },
 		{ 
             name: '?quote or /quote:', 
-            value: 'Random anime quote.' 
+            value: 'Gives an anime quote.' 
         },
 		{   
             name: '?pic or /pic:', 
@@ -55,6 +71,7 @@ module.exports.help = async(message, myType, visibility) => {
             value: 'Sends the help menu in the user\'s DM'
         },
 	);
+
     if(myType===0){
         message.channel.send(
             {embeds:[exampleEmbed]}

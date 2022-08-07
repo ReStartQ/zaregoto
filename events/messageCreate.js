@@ -1,9 +1,9 @@
-const { fetchManga } = require("../functions/fetchManga");
+
 
 module.exports = {
     name: 'messageCreate',
     once: false,
-    async execute (message, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpDM, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote, fetchRandomAnime, fetchRandomManga, fetchAnime) {
+    async execute (message, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpDM, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote, fetchRandomAnime, fetchRandomManga, fetchAnime, fetchManga) {
         switch(message.content.toLocaleLowerCase()){
             case '?theme':
                 await fetchRandomTheme(message, 0);

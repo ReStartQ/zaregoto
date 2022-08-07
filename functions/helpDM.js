@@ -7,7 +7,23 @@ module.exports.helpDM = async(message) => {
 	.setTitle('Zaregoto')
 	.setURL('https://github.com/ReStartQ/zaregoto')
 	.setDescription('Help Menu')
-	.addFields(
+    .addFields(
+		{   
+            name: '?anime or /anime:', 
+            value: 'Returns a random anime or lookup an anime with /anime. The name option for /anime is the same as ?anime-name. Replace the name option for /anime with the name of the anime that you are looking up.' 
+        },
+        { 
+            name: '?anime-name:', 
+            value: 'Look up an anime based on the name given. Replace name with the name of the anime that you are looking up.'
+        },
+        {   
+            name: '?manga or /manga:', 
+            value: 'Returns a random manga or light novel or lookup a manga or light novel with /anime. The name option for /manga is the same as ?manga-name. Replace the name option for /manga with the name of the manga or light novel that you are looking up.' 
+        },
+        { 
+            name: '?manga-name:', 
+            value: 'Look up a manga or light novel based on the name given. Replace name with the name of the manga or light novel that you are looking up.'
+        },
 		{   
             name: '?theme or /theme:', 
             value: 'Random anime op/ed theme song video.' 
@@ -55,7 +71,7 @@ module.exports.helpDM = async(message) => {
             value: 'Sends the help menu in the user\'s DM'
         },
 	);
-
+    
     message.channel.send(
         'Check your **DM** for the help menu.'
     );

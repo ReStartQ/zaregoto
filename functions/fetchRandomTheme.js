@@ -39,5 +39,17 @@ module.exports.fetchRandomTheme = async(message, myType) => {
                 )
             }
         }
+        else{
+            if(myType==0){
+                message.channel.send(
+                    'Try again in a minute'
+                );
+            }
+            else{
+                message.reply(
+                    { content: 'Try again in a minute'}
+                )
+            }
+        }
     }
 }
