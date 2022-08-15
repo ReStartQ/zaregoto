@@ -12,14 +12,16 @@ module.exports.fetchAnimeFact = async(message, myType) => {
             await AnimeFactAPI.getFact().then((res) => {
                 if(myType==0){
                     message.channel.send(
-                        res.fact
+                        '>>> ' + res.fact
                     );
                 }
                 else{
-                    message.reply({content: res.fact})
+                    message.reply({
+                        content: '>>> ' + res.fact
+                    })
                 }
                 animuFacts.push(
-                    res.fact
+                    '>>> ' + res.fact
                 );
                 console.log(res.fact);
             });   

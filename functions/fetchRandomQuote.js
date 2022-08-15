@@ -10,14 +10,16 @@ module.exports.fetchRandomQuote = async(message, myType) => {
             .then(data => {
                 if(myType===0){
                     message.channel.send(
-                        "\"" + data.quote + "\"" + '\n' + '\n' + '-' + data.character + '\n' + data.anime 
+                        ">>> " + "\"" + data.quote + "\"" + '\n' + '\n' + '- ' + data.character  + ', '+'*'+data.anime+'*' 
                     );
                 }
                 else{
-                    message.reply({content:"\"" + data.quote + "\"" + '\n' + '\n' + '-' + data.character + '\n' + data.anime });
+                    message.reply({
+                        content:">>> " + "\"" + data.quote + "\"" + '\n' + '\n' + '- ' + data.character  + ',  '+'*'+data.anime+'*' 
+                    });
                 }
                 animeChanQuotes.push(
-                    "\"" + data.quote + "\"" + '\n' + '\n' + '-' + data.character + '\n' + data.anime 
+                    ">>> " + "\"" + data.quote + "\"" + '\n' + '\n' + '- ' + data.character  + ', '+'*'+data.anime+'*' 
                 );
                 console.log(animeChanQuotes);
             });   

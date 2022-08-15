@@ -7,75 +7,60 @@ module.exports.helpDM = async(message) => {
 	.setTitle('Zaregoto')
 	.setURL('https://github.com/ReStartQ/zaregoto')
 	.setDescription('Help Menu')
-    .addFields(
-		{   
-            name: '?anime or /anime:', 
-            value: 'Returns a random anime or lookup an anime with /anime. The name option for /anime is the same as ?anime-name. Replace the name option for /anime with the name of the anime that you are looking up.' 
+	.addFields(
+        { 
+            name:   '__Information__ ', 
+            value:  '*The following information is here to give a better comprehension of how this help menu is to be read.* \n'+
+                    '**Optional options** are enclosed in square brackets **[*option*]** \n' +
+                    '**Required options** are enclosed in angle brackets **<*option*>** \n' +
+                    '**Slash** and **Prefix** Commands both offer the same functions. \n' +
+                    '**Slash Commands** offer autocomplete options. \n'
         },
         { 
-            name: '?anime-name:', 
-            value: 'Look up an anime based on the name given. Replace name with the name of the anime that you are looking up.'
+            name:   '__Options__ ', 
+            value:  '**[name]**: ' +
+                    'No predefined options. This value can be anything.\n' +
+                    '**Example: ?manga-zaregoto** \n' +
+                    '**[visibility]**: ' +
+                    'public (default, in text channel), private () \n'+
+                    '**Example: /help public.** \n' +
+                    '**[category]**:  '+
+                    'hug, cuddle, dance, poke, happy, wink, smile, wave, cry, kiss, lick, pat, smug, bully, bonk, yeet, blush, highfive, handhold, nom, bite, glomp, slap, kill, kick, cringe \n' +
+                    '**Example: ?gif-hug **'
         },
         {   
-            name: '?manga or /manga:', 
-            value: 'Returns a random manga or light novel or lookup a manga or light novel with /anime. The name option for /manga is the same as ?manga-name. Replace the name option for /manga with the name of the manga or light novel that you are looking up.' 
-        },
-        { 
-            name: '?manga-name:', 
-            value: 'Look up a manga or light novel based on the name given. Replace name with the name of the manga or light novel that you are looking up.'
-        },
-		{   
-            name: '?theme or /theme:', 
-            value: 'Random anime op/ed theme song video.' 
-        },
-		{ 
-            name: '?quote or /quote:', 
-            value: 'Random anime quote.' 
+            name:   '__Slash Commands__', 
+            value:  '**/anime [name]**:  Random anime information. \n' +
+                    '**/manga [name]**:  Random manga or light novel information. \n' +
+                    '**/theme [name]**:  Gives an anime op/ed theme song video. \n' +
+                    '**/quote**:  Random anime quote. \n' + 
+                    '**/pic**:  Random anime picture. \n' +
+                    '**/fact**:  Random anime fact. \n' +
+                    '**/gif [category]**:  Random anime gif. \n' +
+                    '**/help [visibility]**:  The help menu. \n' 
         },
 		{   
-            name: '?pic or /pic:', 
-            value: 'Random anime picture.'
-        },
-		{   
-            name: '?fact or /fact:', 
-            value: 'Random anime fact.'
-        },
-        { 
-            name: '?gif or /gif:', 
-            value: 'Random anime gif. Using /gif allows for an optional type for the gif.'
-        },
-        { 
-            name: '__/gif type options__', 
-            value: 'hug, cuddle, dance, poke, happy, wink, smile, wave, cry, kiss, lick, pat, smug, bully, bonk, yeet, blush, highfive' +
-                   ' handhold, nom, bite, glomp, slap, kill, kick, cringe'
-        },
-        { 
-            name: '?gif-option:', 
-            value: 'Random anime gif based off of option specified.'
-        },
-        { 
-            name: '__Replace option with one of the following below__:', 
-            value: 'hug, cuddle, dance, poke, happy, wink, smile, wave, cry, kiss, lick, pat, smug, bully, bonk, yeet, blush, highfive' +
-                   ' handhold, nom, bite, glomp, slap, kill, kick, cringe'
-        },
-        { 
-            name: '?help or /help:', 
-            value: 'The help menu.'
-        },
-        { 
-            name: '__/help visibility options__:', 
-            value: 'public (default, shows the help menu in the text channel), \n private (only you can see the help menu)'
-        },
-        { 
-            name: '?help-DM:', 
-            value: 'Sends the help menu in the user\'s DM'
+            name:   '__Prefix Commands__', 
+            value:  '**?anime**: Random anime information. \n' +
+                    '**?anime-<name>**:  Look up an anime based on the [name] given. \n' +
+                    '**?manga**:  Random manga or light novel information. \n' +
+                    '**?manga-<name>**: Look up a manga or light novel based on the [name] given. \n' +
+                    '**?theme**: Gives an anime op/ed theme song video. \n' +
+                    '**?theme-<name>**: Lookup an anime op/ed theme song video based on the [name] given. If no exact matches are found, it will give a menu of search results to use as options for name. \n' +
+                    '**?quote**: Random anime quote. \n' + 
+                    '**?pic**: Random anime picture. \n' +
+                    '**?fact**: Random anime fact. \n' +
+                    '**?gif**:  Random anime gif. \n' +
+                    '**?gif-<category>**:  Random anime gif based off of category specified. \n' +
+                    '**?help**:  The help menu. \n' +
+                    '**?help-DM**:  Sends the help menu in the user\'s DM'
         },
 	);
     
-    message.channel.send(
+    await message.channel.send(
         'Check your **DM** for the help menu.'
     );
-    message.author.send(
+    await message.author.send(
         {embeds:[exampleEmbed]}
     );
 }

@@ -1,14 +1,17 @@
-const { fetchManga } = require("../functions/fetchManga");
-
 module.exports = {
     name: 'interactionCreate',
     once: false,
-    async execute (interaction, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpChannel, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote, fetchRandomAnime, fetchRandomManga, fetchAnime, fetchManga) {
+    async execute (interaction, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpChannel, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote, fetchRandomAnime, fetchRandomManga, fetchAnime, fetchManga, fetchTheme) {
         const { commandName, options } = interaction;
 
         switch(commandName){
             case 'theme':
-                fetchRandomTheme(interaction,1);
+                if(options._hoistedOptions.length==0){
+                    fetchRandomTheme(interaction,1);
+                }
+                else{
+                    fetchTheme(interaction, options._hoistedOptions[0].value, 1);
+                }
                 break;
             case 'quote':
                 fetchRandomQuote(interaction, 1);
@@ -20,17 +23,7 @@ module.exports = {
                 fetchAnimeFact(interaction,1);
                 break;
             case 'help':
-                if(options._hoistedOptions.length==0){
-                    help(interaction, 1, false);
-                }
-                else{
-                    if(options._hoistedOptions[0].value==='private'){
-                        help(interaction, 1, true);
-                    }
-                    else{
-                        help(interaction, 1, false);
-                    }
-                }
+                help(interaction, 1, false);
                 break;
             case 'gif':
                 if(options._hoistedOptions.length==0){

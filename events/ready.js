@@ -12,7 +12,7 @@ module.exports = {
             CUSTOM
             COMPETING 
         */
-        client.user.setActivity('?help or /help');
+        client.user.setActivity('/help');
     }
 }
 

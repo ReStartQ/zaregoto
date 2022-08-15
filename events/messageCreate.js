@@ -1,9 +1,7 @@
-
-
-module.exports = {
+/* module.exports = {
     name: 'messageCreate',
     once: false,
-    async execute (message, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpDM, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote, fetchRandomAnime, fetchRandomManga, fetchAnime, fetchManga) {
+    async execute (message, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpDM, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote, fetchRandomAnime, fetchRandomManga, fetchAnime, fetchManga, fetchTheme) {
         switch(message.content.toLocaleLowerCase()){
             case '?theme':
                 await fetchRandomTheme(message, 0);
@@ -20,13 +18,13 @@ module.exports = {
             case '?gif':
                 await fetchWaifuPicGif(message, 0);
                 break;
-            case '?gif-option':
+            case '?gif <category>':
                 await waifuPicGifOptionMenu(message);
                 break;
             case '?help':
                 help(message, 0, false);
                 break;
-            case '?help-dm':
+            case '?helpdm':
                 helpDM(message);
                 break;
             case '?anime':
@@ -38,7 +36,7 @@ module.exports = {
             default:
         }
         //gif-options
-        if(message.content.toLocaleLowerCase().startsWith('?gif-')){ //5 characters
+        if(message.content.toLocaleLowerCase().startsWith('?gif ')){ //5 characters
             let myStartsWithIndex = 5; //this number will change depending on the command
             let myOption = message.content.toLocaleLowerCase().substring(myStartsWithIndex, message.content.toLocaleLowerCase().length);
             console.log(myOption);
@@ -47,19 +45,27 @@ module.exports = {
             }
         }
         //anime-name
-        if(message.content.toLocaleLowerCase().startsWith('?anime-')){ //7 characters
+        if(message.content.toLocaleLowerCase().startsWith('?anime ')){ //7 characters
             let myStartsWithIndex = 7; //this number will change depending on the command
             let myOption = message.content.toLocaleLowerCase().substring(myStartsWithIndex, message.content.toLocaleLowerCase().length);
             console.log(myOption);
             await fetchAnime(message, myOption, 0);
         }
-        //anime-name
-        if(message.content.toLocaleLowerCase().startsWith('?manga-')){ //7 characters
+        //manga-name
+        if(message.content.toLocaleLowerCase().startsWith('?manga ')){ //7 characters
             let myStartsWithIndex = 7; //this number will change depending on the command
             let myOption = message.content.toLocaleLowerCase().substring(myStartsWithIndex, message.content.toLocaleLowerCase().length);
             console.log(myOption);
             await fetchManga(message, myOption, 0);
         }
+        //manga-name
+        if(message.content.toLocaleLowerCase().startsWith('?theme ')){ //7 characters
+            let myStartsWithIndex = 7; //this number will change depending on the command
+            let myOption = message.content.toLocaleLowerCase().substring(myStartsWithIndex, message.content.toLocaleLowerCase().length);
+            console.log(myOption);
+            await fetchTheme(message, myOption, 0);
+        }
     }
 }
 
+ */

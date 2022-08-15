@@ -50,6 +50,7 @@ const { fetchRandomAnime } = require('./functions/fetchRandomAnime');
 const { fetchRandomManga } = require('./functions/fetchRandomManga');
 const { fetchAnime } = require('./functions/fetchAnime');
 const { fetchManga } = require("./functions/fetchManga");
+const { fetchTheme } = require('./functions/fetchTheme');
 
 const helpersFiles = fs.readdirSync("./helpers").filter(file => file.endsWith('.js'));
 
@@ -71,7 +72,7 @@ for(const file of eventFiles){
     if(event.once){
         client.once(event.name, async (...args) => event.execute(...args, commands));
     } else {
-        client.on(event.name, async (...args) => event.execute(...args, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpDM, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote, fetchRandomAnime, fetchRandomManga, fetchAnime, fetchManga));
+        client.on(event.name, async (...args) => event.execute(...args, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpDM, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote, fetchRandomAnime, fetchRandomManga, fetchAnime, fetchManga, fetchTheme));
     }
 }
 

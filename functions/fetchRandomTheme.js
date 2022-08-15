@@ -10,12 +10,12 @@ module.exports.fetchRandomTheme = async(message, myType) => {
             .then( data => {
                 if(myType==0){
                     message.channel.send(
-                        data.videos[0].filename + '\n' + data.videos[0].link
+                        '**' + data.videos[0].filename + '**' + '\n' + data.videos[0].link
                     );
                 }
                 else{
                     message.reply(
-                        { content: data.videos[0].filename + '\n' + data.videos[0].link }
+                        { content: '**' + data.videos[0].filename + '**' + '\n' + data.videos[0].link}
                     )
                 }
                 animeThemes.push(

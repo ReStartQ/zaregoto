@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const {waifuPicOptions, waifuPicOptionsGifs}  = require('../config.json');
 const urlWaifuPics = "https://api.waifu.pics/sfw/";
-
+//no longer used
 module.exports.fetchWaifuPicGifOption = async(message, option, myType) => {
     try {
         if(myType===0){

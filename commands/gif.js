@@ -5,7 +5,7 @@ module.exports = {
         .setName('gif')
         .setDescription('Get an anime gif')
         .addStringOption(option =>
-            option.setName('type')
+            option.setName('category')
             .addChoices(
 				{ name: 'hug', value: 'hug' },
                 { name: 'cuddle', value: 'cuddle' },
