@@ -115,6 +115,7 @@ module.exports.fetchRandomAnime = async(message, myType) => {
             }
 
             const exampleEmbed = new EmbedBuilder()
+            .setColor(0x206694)
             .setThumbnail(image)
             .setTitle(title)
             .setURL(url)
@@ -136,6 +137,11 @@ module.exports.fetchRandomAnime = async(message, myType) => {
                     inline: true 
                 },
                 {   
+                    name: 'Score', 
+                    value: score, 
+                    inline: true 
+                },
+                {   
                     name: 'Studio', 
                     value: studios, 
                     inline: true 
@@ -150,23 +156,7 @@ module.exports.fetchRandomAnime = async(message, myType) => {
                     value: genres, 
                     inline: true 
                 },
-                {   
-                    name: 'Score', 
-                    value: score, 
-                    inline: true 
-                },
-                {   
-                    name: 'Ranked', 
-                    value: rank, 
-                    inline: true 
-                },
-                {   
-                    name: 'Popularity', 
-                    value: popularity, 
-                    inline: true 
-                },
-            )
-            .setFooter({ text: 'Queried with Jikan v4 MAL API'});
+            );
 
             if(myType===0){
                 message.channel.send(

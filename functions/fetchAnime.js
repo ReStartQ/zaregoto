@@ -140,6 +140,7 @@ module.exports.fetchAnime = async(message, myOption, myType) => {
             }
 
             const exampleEmbed = new EmbedBuilder()
+            .setColor(0x206694)
             .setThumbnail(image)
             .setTitle(title)
             .setURL(url)
@@ -161,6 +162,11 @@ module.exports.fetchAnime = async(message, myOption, myType) => {
                     inline: true 
                 },
                 {   
+                    name: 'Score', 
+                    value: score, 
+                    inline: true 
+                },
+                {   
                     name: 'Studio', 
                     value: studios, 
                     inline: true 
@@ -175,24 +181,7 @@ module.exports.fetchAnime = async(message, myOption, myType) => {
                     value: genres, 
                     inline: true 
                 },
-                {   
-                    name: 'Score', 
-                    value: score, 
-                    inline: true 
-                },
-                {   
-                    name: 'Ranked', 
-                    value: rank, 
-                    inline: true 
-                },
-                {   
-                    name: 'Popularity', 
-                    value: popularity, 
-                    inline: true 
-                },
-            )
-            .setFooter({ text: 'Queried with Jikan v4 MAL API.'});
-
+            );
 
 
             if(myType===0){
@@ -209,11 +198,11 @@ module.exports.fetchAnime = async(message, myOption, myType) => {
             console.log(error);
             if(myType===0){
                 message.channel.send(
-                    'Unable to find what you were looking for on MAL. Be more specific on the name.'
+                    'Unable to find what you were looking for on MyAnimeList. Be more specific on the name.'
                 );
             }
             else{
-                message.reply({content:'Unable to find what you were looking for on MAL. Be more specific on the name.'});
+                message.reply({content:'Unable to find what you were looking for on MyAnimeList. Be more specific on the name.'});
             }
         }
     }

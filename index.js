@@ -1,4 +1,4 @@
-const { Client, Collection, GatewayIntentBits } = require('discord.js');
+const { Client, Collection, GatewayIntentBits, ActivityType } = require('discord.js');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require( 'discord-api-types/v10');
 const fs = require( 'fs');
@@ -19,6 +19,7 @@ const client = new Client({
         GatewayIntentBits.MessageContent,
     ],
 });
+
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -70,7 +71,7 @@ const eventFiles = fs.readdirSync("./events").filter(file => file.endsWith('.js'
 for(const file of eventFiles){
     const event = require(`./events/${file}`);
     if(event.once){
-        client.once(event.name, async (...args) => event.execute(...args, commands));
+        client.once(event.name, async (...args) => event.execute(...args, commands, ActivityType));
     } else {
         client.on(event.name, async (...args) => event.execute(...args, commands, fetchWaifuPic, fetchWaifuPicGif, fetchWaifuPicGifOption, waifuPicGifOptionMenu, help, helpDM, waifuPicOptionsGifs, waifuPicOptions, fetchAnimeImageGif, fetchAnimeFact, fetchRandomTheme, fetchRandomQuote, fetchRandomAnime, fetchRandomManga, fetchAnime, fetchManga, fetchTheme));
     }

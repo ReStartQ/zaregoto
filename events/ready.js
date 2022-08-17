@@ -1,7 +1,8 @@
+
 module.exports = {
     name: 'ready',
     once: true,
-    async execute (client, commands) {
+    async execute (client, commands, ActivityType) {
         console.log('bot ready');
         /*      
             ActivityTypes
@@ -12,10 +13,8 @@ module.exports = {
             CUSTOM
             COMPETING 
         */
-        client.user.setActivity('/help');
+        client.user.setActivity('/help', { type: ActivityType.Playing });
+/*         setInterval(() => {client.user.setActivity('/help', { type: ActivityType.Playing });}, 60000);  */
+
     }
 }
-
-/* client.once('ready', () =>{
-    console.log('bot ready');
-}); */

@@ -36,13 +36,10 @@ module.exports.fetchRandomManga = async(message, myType) => {
             }
 
             let type = manga.data.type;
-            let published = manga.data.published.from;
+            let published = manga.data.published.string;
 
             if(published==null){
                 published="Unknown";
-            }
-            else{
-                published=published.slice(0, published.indexOf('T'));
             }
 
             let synopsis=manga.data.synopsis;
@@ -109,6 +106,7 @@ module.exports.fetchRandomManga = async(message, myType) => {
             }
 
             const exampleEmbed = new EmbedBuilder()
+            .setColor(0x206694)
             .setThumbnail(image)
             .setTitle(title)
             .setURL(url)
@@ -118,6 +116,21 @@ module.exports.fetchRandomManga = async(message, myType) => {
                     name: 'Chapters',
                     value: chapters,
                     inline: true
+                },
+                {   
+                    name: 'Status', 
+                    value: status, 
+                    inline: true 
+                },
+                {   
+                    name: 'Published', 
+                    value: published, 
+                    inline: true 
+                },
+                {   
+                    name: 'Score', 
+                    value: score, 
+                    inline: true 
                 },
                 {
                     name: 'Volumes',
@@ -130,37 +143,11 @@ module.exports.fetchRandomManga = async(message, myType) => {
                     inline: true 
                 },
                 {   
-                    name: 'Status', 
-                    value: status, 
-                    inline: true 
-                },
-                {   
-                    name: 'Start Date', 
-                    value: published, 
-                    inline: true 
-                },
-                {   
                     name: 'Genres', 
                     value: genres, 
                     inline: true 
                 },
-                {   
-                    name: 'Score', 
-                    value: score, 
-                    inline: true 
-                },
-                {   
-                    name: 'Ranked', 
-                    value: rank, 
-                    inline: true 
-                },
-                {   
-                    name: 'Popularity', 
-                    value: popularity, 
-                    inline: true 
-                },
-            )
-            .setFooter({ text: 'Queried with Jikan v4 MAL API'});
+            );
 
             if(myType===0){
                 message.channel.send(

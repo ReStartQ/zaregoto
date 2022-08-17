@@ -52,13 +52,10 @@ module.exports.fetchManga = async(message, myOption, myType) => {
             
 
             let type = manga.data[myIndex].type;
-            let published = manga.data[myIndex].published.from;
+            let published = manga.data[myIndex].published.string;
 
             if(published==null){
                 published="Unknown";
-            }
-            else{
-                published=published.slice(0, published.indexOf('T'));
             }
 
             let synopsis=manga.data[myIndex].synopsis;
@@ -125,6 +122,7 @@ module.exports.fetchManga = async(message, myOption, myType) => {
             }
 
             const exampleEmbed = new EmbedBuilder()
+            .setColor(0x206694)
             .setThumbnail(image)
             .setTitle(title)
             .setURL(url)
@@ -134,6 +132,21 @@ module.exports.fetchManga = async(message, myOption, myType) => {
                     name: 'Chapters',
                     value: chapters,
                     inline: true
+                },
+                {   
+                    name: 'Status', 
+                    value: status, 
+                    inline: true 
+                },
+                {   
+                    name: 'Published', 
+                    value: published, 
+                    inline: true 
+                },
+                {   
+                    name: 'Score', 
+                    value: score, 
+                    inline: true 
                 },
                 {
                     name: 'Volumes',
@@ -146,37 +159,11 @@ module.exports.fetchManga = async(message, myOption, myType) => {
                     inline: true 
                 },
                 {   
-                    name: 'Status', 
-                    value: status, 
-                    inline: true 
-                },
-                {   
-                    name: 'Start Date', 
-                    value: published, 
-                    inline: true 
-                },
-                {   
                     name: 'Genres', 
                     value: genres, 
                     inline: true 
                 },
-                {   
-                    name: 'Score', 
-                    value: score, 
-                    inline: true 
-                },
-                {   
-                    name: 'Ranked', 
-                    value: rank, 
-                    inline: true 
-                },
-                {   
-                    name: 'Popularity', 
-                    value: popularity, 
-                    inline: true 
-                },
-            )
-            .setFooter({ text: 'Queried with Jikan v4 MAL API'});
+            );
 
 
             if(myType===0){
@@ -193,11 +180,11 @@ module.exports.fetchManga = async(message, myOption, myType) => {
             console.log(error);
             if(myType===0){
                 message.channel.send(
-                    'Unable to find what you were looking for on MAL. Be more specific on the name.'
+                    'Unable to find what you were looking for on MyAnimeList. Be more specific on the name.'
                 );
             }
             else{
-                message.reply({content:'Unable to find what you were looking for on MAL. Be more specific on the name.'});
+                message.reply({content:'Unable to find what you were looking for on MyAnimeList. Be more specific on the name.'});
             }
         }
     }

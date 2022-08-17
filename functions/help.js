@@ -2,7 +2,7 @@ const { EmbedBuilder } = require('discord.js');
 
 module.exports.help = async(message, myType, visibility) => {
     const exampleEmbed = new EmbedBuilder()
-	.setColor(0x0099FF)
+	.setColor(0xE67E22)
 	.setTitle('Zaregoto')
     .setURL('https://github.com/ReStartQ/zaregoto')
 	.setDescription( '**HELP MENU**')
