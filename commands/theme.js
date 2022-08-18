@@ -6,7 +6,7 @@ module.exports = {
         .setDescription('Get an anime op/ed theme song')
         .addStringOption(option =>
             option.setName('name')
-                .setDescription('Look up an anime theme song')
+                .setDescription('Lookup an anime theme song')
                 .setRequired(false)),
     async execute(interaction) {
     

@@ -2,18 +2,18 @@ const { EmbedBuilder } = require('discord.js');
 
 module.exports.help = async(message, myType, visibility) => {
     const exampleEmbed = new EmbedBuilder()
-	.setColor(0xE67E22)
+	.setColor(0x0099FF)
 	.setTitle('Zaregoto')
     .setURL('https://github.com/ReStartQ/zaregoto')
 	.setDescription( '**HELP MENU**')
 	.addFields(
         {
             name:   '__Commands:__',
-            value:  '*Options are denoted with angle brackets* **<option>** \n'+
-                    '**/anime <name>** - ' + 'Look up an anime. \n' +
-                    '**/manga <name>** - ' + 'Look up a manga or light novel. \n' +
-                    '**/theme <name>** - ' + 'Look up an anime op/ed theme song. \n' +
-                    '**/gif <category>** - ' + 'Get an anime gif from a category. \n' +
+            value:  '*Options are denoted with brackets* **[option]** \n'+
+                    '**/anime [name]** - ' + 'Lookup an anime. \n' +
+                    '**/manga [name]** - ' + 'Lookup a manga or light novel. \n' +
+                    '**/theme [name]** - ' + 'Lookup an anime op/ed theme song. \n' +
+                    '**/gif [category]** - ' + 'Get an anime gif from a category. \n' +
                     '**/anime** - Get a random anime.\n'+
                     '**/manga** - Get a random manga.\n' +
                     '**/theme** - Get a random anime op/ed theme song.\n'+
@@ -25,10 +25,10 @@ module.exports.help = async(message, myType, visibility) => {
         },
         { 
             name:   '__Option Values:__ ', 
-            value:  '*These are the possible values that an* **<option>** *can be.*\n'+
-                    '**<name>**: ' +
+            value:  '*These are the possible values that an* **[option]** *can be.*\n'+
+                    '**[name]**: ' +
                     'Any value accepted. \n' +
-                    '**<category>**: '+
+                    '**[category]**: '+
                     'hug, cuddle, dance, poke, happy, wink, smile, wave, cry, kiss, lick, pat, smug, bully, bonk, yeet, blush, highfive, handhold, nom, bite, glomp, slap, kill, kick, cringe \n'
         },
         {
