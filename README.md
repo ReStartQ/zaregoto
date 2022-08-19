@@ -1,5 +1,3 @@
-<img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/Zaregoto.png?raw=true" width="1280">
-
 # Zaregoto
 Zaregoto is a discord bot that brings anime content to your discord server. 
 <br />
