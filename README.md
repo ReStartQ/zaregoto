@@ -26,18 +26,6 @@ Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?c
 **/fact** - Get an anime fact. <br />
 **/help** - The help menu. <br />
 
-# Option Values: <br />
-*These are the possible values that an* `[option]` *can be.* <br />
-`[name]`: Any value accepted. <br />
-`[category]`: hug, cuddle, dance, poke, happy, wink, smile, wave, cry, kiss, lick, pat, smug, bully, bonk, yeet, blush, highfive, handhold, nom, bite, glomp, slap, kill, kick, cringe
-<br />
-
-# Command Usage Examples: <br />
-*The usage of* `option:` *indicates that the option has been selected or autocompleted.* <br />
-/anime `name: Bakemonogatari` <br />
-/manga `name: Zaregoto` <br />
-/theme `name: Bakemonogatari-OP1` <br />
-/gif `category: hug` <br />
 
 # Preview
 <img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/anime%20example.png?raw=true" width="1000">
