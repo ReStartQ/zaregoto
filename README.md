@@ -10,9 +10,9 @@ Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?c
 
 # Preview
 
-<img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/anime%20example.png?raw=true" width="1280">
-<img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/manga%20example.png?raw=true" width="1280">
-<img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/theme%20example.png?raw=true" width="1280">
+<img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/anime%20example.png?raw=true" width="">
+<img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/manga%20example.png?raw=true" width="">
+<img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/theme%20example.png?raw=true" width="">
 
 # Commands 
 *Options are denoted with brackets* `[option]` <br/>
