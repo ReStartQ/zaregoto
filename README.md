@@ -5,7 +5,7 @@ Zaregoto is a discord bot that brings anime content to your discord server.
 <br />
 Lookup an anime or manga. 
 <br/>
-Get anime op/ed theme song videos, gifs, and more. 
+Get anime op/ed theme song videos, gifs, quotes, and more. 
 <br/>
 
 
