@@ -27,6 +27,6 @@ Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?c
 
 
 # Preview
-<img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/anime%20example.png?raw=true" width="1000">
-<img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/manga%20example.png?raw=true" width="1000">
-<img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/theme%20example.png?raw=true" width="1000">
+<img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/anime%20example.png?raw=true" >
+<img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/manga%20example.png?raw=true" >
+<img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/theme%20example.png?raw=true">
