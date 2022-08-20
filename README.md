@@ -29,5 +29,5 @@ Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?c
 
 
 # Preview
-<img src="https://i.imgur.com/nNKVcYR.png" >
+<img src="https://i.imgur.com/nNKVcYR.png" width="100%">
 
