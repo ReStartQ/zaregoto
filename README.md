@@ -1,5 +1,6 @@
 <img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/Zaregoto.png?raw=true" width="1000">
 
+
 # Zaregoto
 Zaregoto is a discord bot that brings anime content to your discord server. 
 <br />
@@ -12,6 +13,8 @@ Get anime op/ed theme song videos, gifs, quotes, and more.
 # Getting Started
 Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?client_id=1001863523359531200&permissions=431644600384&scope=bot%20applications.commands).
 
+# Preview
+<img src="https://i.imgur.com/nNKVcYR.png" width="100%">
 
 # Commands 
 **/anime `[name]`** - Lookup an anime. <br />
@@ -28,6 +31,5 @@ Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?c
 **/help** - The help menu. <br />
 
 
-# Preview
-<img src="https://i.imgur.com/nNKVcYR.png" width="100%">
+
 
