@@ -16,7 +16,7 @@ module.exports.fetchTheme = async(message, myOption, myType) => {
                 .setColor(0x2C3E50)
                 .setTitle('Opening/Ending Themes \n')
                 .setDescription('*Set the option for* **/theme [name]**.\n'+
-                                '__**Command Usage Example:**__ \n'+
+                                '__**Example:**__ \n'+
                                 '*The usage of* `name:` *indicates that the option has been selected or autocompleted.* \n' +
                                 '**/theme** `name: Bakemonogatari-OP1`\n\n'+
                                 '*The following results are based off the name that you provided:* ' + '**'+ myOption +'**'+ '\n')

@@ -32,7 +32,7 @@ module.exports.help = async(message, myType, visibility) => {
                     'hug, cuddle, dance, poke, happy, wink, smile, wave, cry, kiss, lick, pat, smug, bully, bonk, yeet, blush, highfive, handhold, nom, bite, glomp, slap, kill, kick, cringe \n'
         },
         {
-            name:   '__Command Usage Examples:__',
+            name:   '__Examples:__',
             value:  '*The usage of* `option:` *indicates that the option has been selected or autocompleted.*\n' +
                     '**/anime** `name: Bakemonogatari` \n'+
                     '**/manga** `name: Zaregoto` \n' +

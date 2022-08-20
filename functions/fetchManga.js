@@ -10,6 +10,16 @@ module.exports.fetchManga = async(message, myOption, myType) => {
             let manga = await jikanjs.search('manga', myOption, 25); 
             console.log(manga);
 
+            const exampleEmbed2 = new EmbedBuilder()
+            .setColor(0x2C3E50)
+            .setTitle('Manga \n')
+            .setDescription('*Set the option for* **/manga [name]**.\n'+
+                            '__**Example:**__ \n'+
+                            '*The usage of* `name:` *indicates that the option has been selected or autocompleted.* \n' +
+                            '**/manga** `name: Bakemonogatari`\n\n'+
+                            '*The following results are based off the name that you provided:* ' + '**'+ myOption +'**'+ '\n')
+            .setFooter({ text: 'Only shows up to the first 25 manga results. \n' + 'For more accurate results, be specific with the manga name.'});
+
             if(manga.data[0]===undefined){
                 console.log('not found');
                 throw 'MANGA NOT FOUND'
@@ -19,6 +29,12 @@ module.exports.fetchManga = async(message, myOption, myType) => {
             let myMapFlag = false;
 
             manga.data.map((data, index)=>{
+                exampleEmbed2.addFields(	
+                    {   
+                        name: 'Name:', 
+                        value: '`' + data.title + '`' 
+                    },
+                )
                 if(data.title.toLocaleLowerCase()==myOption.toLocaleLowerCase()&&myMapFlag==false){
                     myIndex=index;
                     myMapFlag=true;
@@ -165,7 +181,7 @@ module.exports.fetchManga = async(message, myOption, myType) => {
                 },
             );
 
-
+        if(myMapFlag){
             if(myType===0){
                 message.channel.send(
                     {embeds:[exampleEmbed]}
@@ -174,6 +190,17 @@ module.exports.fetchManga = async(message, myOption, myType) => {
             else{
                 message.reply({embeds:[exampleEmbed]});
             }
+        }
+        else{
+            if(myType===0){
+                message.channel.send(
+                    {embeds:[exampleEmbed2]}
+                );
+            }
+            else{
+                message.reply({embeds:[exampleEmbed2]});
+            }
+        }
 
         } catch (error) {
             //console.log('Media lookup not found');

@@ -10,6 +10,17 @@ module.exports.fetchAnime = async(message, myOption, myType) => {
         try {
             let anime = await jikanjs.search('anime', myOption, 25); 
             console.log(anime);
+
+            const exampleEmbed2 = new EmbedBuilder()
+            .setColor(0x2C3E50)
+            .setTitle('Anime \n')
+            .setDescription('*Set the option for* **/anime [name]**.\n'+
+                            '__**Example:**__ \n'+
+                            '*The usage of* `name:` *indicates that the option has been selected or autocompleted.* \n' +
+                            '**/anime** `name: Bakemonogatari`\n\n'+
+                            '*The following results are based off the name that you provided:* ' + '**'+ myOption +'**'+ '\n')
+            .setFooter({ text: 'Only shows up to the first 25 anime results. \n' + 'For more accurate results, be specific with the anime name.'});
+            
             if(anime.data[0]===undefined){
                 console.log('not found');
                 throw 'ANIME NOT FOUND';
@@ -18,7 +29,14 @@ module.exports.fetchAnime = async(message, myOption, myType) => {
             let myIndex = 0;
             let myMapFlag = false;
 
+
             anime.data.map((data, index)=>{
+                exampleEmbed2.addFields(	
+                    {   
+                        name: 'Name:', 
+                        value: '`' + data.title + '`' 
+                    },
+                )
                 if(data.title.toLocaleLowerCase()==myOption.toLocaleLowerCase()&&myMapFlag==false){
                     myIndex=index;
                     myMapFlag=true;
@@ -138,6 +156,7 @@ module.exports.fetchAnime = async(message, myOption, myType) => {
             else{
                 popularity = anime.data[myIndex].popularity.toString();
             }
+            
 
             const exampleEmbed = new EmbedBuilder()
             .setColor(0x206694)
@@ -184,13 +203,25 @@ module.exports.fetchAnime = async(message, myOption, myType) => {
             );
 
 
-            if(myType===0){
-                message.channel.send(
-                    {embeds:[exampleEmbed]}
-                );
+            if(myMapFlag){
+                if(myType===0){
+                    message.channel.send(
+                        {embeds:[exampleEmbed]}
+                    );
+                }
+                else{
+                    message.reply({embeds:[exampleEmbed]});
+                }
             }
             else{
-                message.reply({embeds:[exampleEmbed]});
+                if(myType===0){
+                    message.channel.send(
+                        {embeds:[exampleEmbed2]}
+                    );
+                }
+                else{
+                    message.reply({embeds:[exampleEmbed2]});
+                }
             }
 
         } catch (error) {
