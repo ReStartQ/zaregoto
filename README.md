@@ -31,6 +31,9 @@ Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?c
 
 # How to run Zaregoto for development purposes?
 
+## Prerequisites
+Node v16.9 or higher <br/>
+
 ## 1. Clone the directory
 ```
 git clone https://github.com/ReStartQ/zaregoto.git
@@ -54,6 +57,8 @@ CLIENT_ID: Client id for testing purposes until you decide to finalize with glob
 ```
 npm start
 ```
+
+
 
 
 
