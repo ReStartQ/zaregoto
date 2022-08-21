@@ -7,6 +7,13 @@ Lookup an anime or manga.
 Get anime op/ed theme song videos, gifs, quotes, and more. 
 <br/>
 
+
+# Getting Started
+Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?client_id=1001863523359531200&permissions=431644600384&scope=bot%20applications.commands).
+
+# Preview
+<img src="https://i.imgur.com/nNKVcYR.png" width="100%">
+
 # Commands 
 **/anime `[name]`** - Lookup an anime. <br />
 **/manga `[name]`** - Lookup a manga or light novel. <br />
@@ -21,28 +28,32 @@ Get anime op/ed theme song videos, gifs, quotes, and more.
 **/fact** - Get an anime fact. <br />
 **/help** - The help menu. <br />
 
+# Option Values:
+*These are the possible values that an [option] can be.*  <br />
+`[name]`: Any value accepted.  <br />
+`[category]`: hug, cuddle, dance, poke, happy, wink, smile, wave, cry, kiss, lick, pat, smug, bully, bonk, yeet, blush, highfive, handhold, nom, bite, glomp, slap, kill, kick, cringe  <br />
 
-# Getting Started
-Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?client_id=1001863523359531200&permissions=431644600384&scope=bot%20applications.commands).
+# Examples:
+*The usage of option: indicates that the option has been selected or autocompleted.* <br />
+**/anime** `name: Bakemonogatari` <br />
+**/manga** `name: Zaregoto` <br />
+**/theme** `name: Bakemonogatari-OP1` <br />
+**/gif** `category: hug` <br />
 
-# Preview
-<img src="https://i.imgur.com/nNKVcYR.png" width="100%">
+## How to run Zaregoto for development purposes?
 
-
-# How to run Zaregoto for development purposes?
-
-## Prerequisites
+### Prerequisites
 Node v16.9 or higher <br/>
 
-## 1. Clone the directory
+### 1. Clone the directory
 ```
 git clone https://github.com/ReStartQ/zaregoto.git
 ```
-## 2. Install node dependencies
+### 2. Install node dependencies
 ```
 npm install
 ```
-## 3. Make an env file
+### 3. Make an env file
 *In the .env file provide the following*
 
 TOKEN: This is the discord token from your discord developer portal
@@ -53,7 +64,7 @@ GUILD_ID: Guild id for testing purposes until you decide to finalize with global
 
 CLIENT_ID: Client id for testing purposes until you decide to finalize with global commands.
 
-## 4. Running the bot on your computer
+### 4. Running the bot on your computer
 ```
 npm start
 ```
