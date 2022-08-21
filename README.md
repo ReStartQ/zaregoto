@@ -28,6 +28,32 @@ Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?c
 **/fact** - Get an anime fact. <br />
 **/help** - The help menu. <br />
 
+# How to run Zaregoto for development purposes?
+
+## 1. Clone the directory
+```
+git clone https://github.com/ReStartQ/zaregoto.git
+```
+## 2. Install node dependencies
+```
+npm install
+```
+## 3. Make an env file
+*In the .env file provide the following*
+
+TOKEN: This is the discord token from your discord developer portal
+
+ANIME_FACT_TOKEN: Can be generated with Animu discord server [here](https://animu.ml/). If you dont want to generate an API token, You can delete this and all instances of code that relate to anime facts. Doing this will disable the /fact command. 
+
+GUILD_ID: Guild id for testing purposes until you decide to finalize with global commands.
+
+CLIENT_ID: Client id for testing purposes until you decide to finalize with global commands.
+
+## 4. Running the bot on your computer
+```
+npm start
+```
+
 
 
 
