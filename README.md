@@ -2,7 +2,7 @@
 # <img src="https://github.com/ReStartQ/zaregoto/blob/main/extra/Zaregoto.png?raw=true" width="1000">
 Zaregoto is a discord bot that brings anime content to your discord server. 
 <br />
-Search for an anime or manga. 
+Lookup an anime or manga. 
 <br/>
 Get anime op/ed theme song videos, gifs, quotes, and more. 
 <br/>
@@ -15,9 +15,9 @@ Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?c
 <img src="https://i.imgur.com/nNKVcYR.png" width="100%">
 
 # Commands 
-**/anime `[name]`** - Search for an anime. <br />
-**/manga `[name]`** - Search for a manga or light novel. <br />
-**/theme `[name]`** - Search for an anime op/ed theme song. <br />
+**/anime `[name]`** - Lookup an anime. <br />
+**/manga `[name]`** - Lookup a manga or light novel. <br />
+**/theme `[name]`** - Lookup for an anime op/ed theme song. <br />
 **/gif `[category]`** - Get an anime gif from a category. <br />
 **/anime** - Get a random anime. <br />
 **/manga** - Get a random manga. <br />
