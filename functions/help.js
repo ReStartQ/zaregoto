@@ -10,9 +10,9 @@ module.exports.help = async(message, myType, visibility) => {
         {
             name:   '__Commands:__',
             value:  '*Options are denoted with brackets* **[option]** \n'+
-                    '**/anime [name]** - ' + 'Search for an anime. \n' +
-                    '**/manga [name]** - ' + 'Search for a manga or light novel. \n' +
-                    '**/theme [name]** - ' + 'Search for an anime op/ed theme song. \n' +
+                    '**/anime [name]** - ' + 'Lookup an anime. \n' +
+                    '**/manga [name]** - ' + 'Lookup a manga or light novel. \n' +
+                    '**/theme [name]** - ' + 'Lookup an anime op/ed theme song. \n' +
                     '**/gif [category]** - ' + 'Get an anime gif from a category. \n' +
                     '**/anime** - Get a random anime.\n'+
                     '**/manga** - Get a random manga.\n' +

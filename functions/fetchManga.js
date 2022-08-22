@@ -18,7 +18,7 @@ module.exports.fetchManga = async(message, myOption, myType) => {
                             '*The usage of* `name:` *indicates that the option has been selected or autocompleted.* \n' +
                             '**/manga** `name: Bakemonogatari`\n\n'+
                             '*The following results are based off the name that you provided:* ' + '**'+ myOption +'**'+ '\n')
-            .setFooter({ text: 'Only shows up to the first 25 manga results. \n' + 'For more accurate results, be specific with the manga name.'});
+            .setFooter({ text: 'Only shows up to the first 25 manga results. \n' + 'For more accurate search results, be more specific with the manga name.'});
 
             if(manga.data[0]===undefined){
                 console.log('not found');
