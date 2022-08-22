@@ -17,7 +17,7 @@ Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?c
 # Commands 
 **/anime `[name]`** - Lookup an anime. <br />
 **/manga `[name]`** - Lookup a manga or light novel. <br />
-**/theme `[name]`** - Lookup an anime op/ed theme song. <br />
+**/theme `[name]`** - Lookup for an anime op/ed theme song. <br />
 **/gif `[category]`** - Get an anime gif from a category. <br />
 **/anime** - Get a random anime. <br />
 **/manga** - Get a random manga. <br />
