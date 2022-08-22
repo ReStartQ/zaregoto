@@ -225,11 +225,11 @@ module.exports.fetchManga = async(message, myOption, myType) => {
             if(error=='NSFW'){
                 if(myType===0){
                     message.channel.send(
-                        'Please search for this manga in a NSFW channel.'
+                        'Please lookup this manga in a NSFW channel.'
                     );
                 }
                 else{
-                    message.reply({content:'Please search for this manga in a NSFW channel.'});
+                    message.reply({content:'Please lookup this manga in a NSFW channel.'});
                 }
             }
             else{
