@@ -6,6 +6,6 @@ module.exports = {
         .setDescription('Get a manga or light novel.')
         .addStringOption(option =>
             option.setName('name')
-                .setDescription('Lookup a manga or light novel')
+                .setDescription('Search for a manga or light novel')
                 .setRequired(false)),
 }

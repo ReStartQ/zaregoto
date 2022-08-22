@@ -6,6 +6,6 @@ module.exports = {
         .setDescription('Get an anime.')
         .addStringOption(option =>
             option.setName('name')
-                .setDescription('Lookup an anime')
+                .setDescription('Search for an anime')
                 .setRequired(false)),
 }
