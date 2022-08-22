@@ -14,25 +14,30 @@ module.exports.fetchRandomManga = async(message, myType) => {
                 console.log(genre.name);
             })
             if(manga.data.genres!=null){
-                let myGenreArray=[]
+                let myGenreArray=[];
                 manga.data.genres.map(genre=>{
                     myGenreArray.push(genre.name);
                 })
                 console.log(myGenreArray);
-                while(myGenreArray.includes('Hentai')){
-                    if((jikanSecondCounter>0&&jikanMinuteCounter>0)){
-                        jikanMinuteCounter-=1;
-                        jikanSecondCounter-=1;
-                        manga = await jikanjs.loadRandom('manga');
-                        myGenreArray=[];
-                        if(manga.data.genres==null){
-                            break;
+                if (message.channel.nsfw==false){ //if sfw channel
+                    while(myGenreArray.includes('Hentai')||myGenreArray.includes('Erotica')){
+                        if((jikanSecondCounter>0&&jikanMinuteCounter>0)){
+                            jikanMinuteCounter-=1;
+                            jikanSecondCounter-=1;
+                            manga = await jikanjs.loadRandom('manga');
+                            myGenreArray=[];
+                            if(manga.data.genres==null){
+                                break;
+                            }
+                            manga.data.genres.map(genre=>{
+                                myGenreArray.push(genre.name);
+                            })
                         }
-                        manga.data.genres.map(genre=>{
-                            myGenreArray.push(genre.name);
-                        })
+                        else{
+                            throw 'ran out of tokens'
+                        }
                     }
-                }
+                } 
             }
 
             let type = manga.data.type;
@@ -159,7 +164,6 @@ module.exports.fetchRandomManga = async(message, myType) => {
             };
             
         } catch (error) {
-            //console.log('Media lookup not found');
             console.log(error);
             if(myType===0){
                 message.channel.send(

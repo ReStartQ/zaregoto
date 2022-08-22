@@ -10,8 +10,8 @@ module.exports.fetchRandomAnime = async(message, myType) => {
         try {
             let anime = await jikanjs.loadRandom('anime');
             console.log(anime);
-            if(anime.data.rating!=null){
-                while(anime.data.rating.startsWith('Rx')){
+/*             if(anime.data.rating!=null){
+                while(anime.data.rating.startsWith('Rx')||anime.data.rating.startsWith('R+')){
                     if((jikanSecondCounter>0&&jikanMinuteCounter>0)){
                         jikanMinuteCounter-=1;
                         jikanSecondCounter-=1;
@@ -19,6 +19,36 @@ module.exports.fetchRandomAnime = async(message, myType) => {
                     }
                     if(anime.data.rating==null){
                         break; //breaks when it is null
+                    }
+                }
+            }
+ */
+            anime.data.genres.map(genre=>{
+                console.log(genre.name);
+            })
+            if(anime.data.genres!=null){
+                let myGenreArray=[];
+                anime.data.genres.map(genre=>{
+                    myGenreArray.push(genre.name);
+                })
+                console.log(myGenreArray);
+                if (message.channel.nsfw==false){ //if sfw channel
+                    while(myGenreArray.includes('Hentai')||myGenreArray.includes('Erotica')){
+                        if((jikanSecondCounter>0&&jikanMinuteCounter>0)){
+                            jikanMinuteCounter-=1;
+                            jikanSecondCounter-=1;
+                            anime = await jikanjs.loadRandom('anime');
+                            myGenreArray=[];
+                            if(anime.data.genres==null){
+                                break;
+                            }
+                            anime.data.genres.map(genre=>{
+                                myGenreArray.push(genre.name);
+                            })
+                        }
+                        else{
+                            throw 'ran out of tokens'
+                        }
                     }
                 }
             }
@@ -168,7 +198,6 @@ module.exports.fetchRandomAnime = async(message, myType) => {
             }
 
         } catch (error) {
-            //console.log('Media lookup not found');
             console.log(error);
             if(myType===0){
                 message.channel.send(

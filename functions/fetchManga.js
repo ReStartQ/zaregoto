@@ -28,6 +28,7 @@ module.exports.fetchManga = async(message, myOption, myType) => {
             let myIndex = 0;
             let myMapFlag = false;
 
+
             manga.data.map((data, index)=>{
                 exampleEmbed2.addFields(	
                     {   
@@ -65,7 +66,16 @@ module.exports.fetchManga = async(message, myOption, myType) => {
                 }
             });
 
-            
+            let myGenreArray=[];
+            let NSFWflag=false;
+            manga.data[myIndex].genres.map(genre=>{
+                myGenreArray.push(genre.name);
+            });
+
+            //check for hentai or erotica
+            if(myGenreArray.includes('Hentai')||myGenreArray.includes('Erotica')){
+                NSFWflag=true;
+            }
 
             let type = manga.data[myIndex].type;
             let published = manga.data[myIndex].published.string;
@@ -181,37 +191,56 @@ module.exports.fetchManga = async(message, myOption, myType) => {
                 },
             );
 
-        if(myMapFlag){
-            if(myType===0){
-                message.channel.send(
-                    {embeds:[exampleEmbed]}
-                );
+            if (message.channel.nsfw) {
+                console.log("This channel is NSFW.");
+            }
+            else if(message.channel.nsfw===false && NSFWflag===true){
+                console.log("This channel is SFW.");
+                throw "NSFW";
+            }
+            
+            if(myMapFlag){
+                if(myType===0){
+                    message.channel.send(
+                        {embeds:[exampleEmbed]}
+                    );
+                }
+                else{
+                    message.reply({embeds:[exampleEmbed]});
+                }
             }
             else{
-                message.reply({embeds:[exampleEmbed]});
+                if(myType===0){
+                    message.channel.send(
+                        {embeds:[exampleEmbed2]}
+                    );
+                }
+                else{
+                    message.reply({embeds:[exampleEmbed2]});
+                }
             }
-        }
-        else{
-            if(myType===0){
-                message.channel.send(
-                    {embeds:[exampleEmbed2]}
-                );
-            }
-            else{
-                message.reply({embeds:[exampleEmbed2]});
-            }
-        }
-
         } catch (error) {
             //console.log('Media lookup not found');
             console.log(error);
-            if(myType===0){
-                message.channel.send(
-                    'Unable to find what you were looking for on MyAnimeList. Be more specific on the name.'
-                );
+            if(error=='NSFW'){
+                if(myType===0){
+                    message.channel.send(
+                        'Please search for this manga in a NSFW channel.'
+                    );
+                }
+                else{
+                    message.reply({content:'Please search for this manga in a NSFW channel.'});
+                }
             }
             else{
-                message.reply({content:'Unable to find what you were looking for on MyAnimeList. Be more specific on the name.'});
+                if(myType===0){
+                    message.channel.send(
+                        'Unable to find what you were looking for on MyAnimeList. Be more specific on the name.'
+                    );
+                }
+                else{
+                    message.reply({content:'Unable to find what you were looking for on MyAnimeList. Be more specific on the name.'});
+                }
             }
         }
     }
