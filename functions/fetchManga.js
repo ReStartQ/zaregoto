@@ -30,12 +30,44 @@ module.exports.fetchManga = async(message, myOption, myType) => {
 
 
             manga.data.map((data, index)=>{
-                exampleEmbed2.addFields(	
-                    {   
-                        name: 'Name:', 
-                        value: '`' + data.title + '`' 
-                    },
-                )
+                let tempGenreArray=[];
+                let tempNSFWflag=false;
+
+                data.genres.map(genre=>{
+                    tempGenreArray.push(genre.name);
+                });
+    
+                //check for hentai or erotica
+                if(tempGenreArray.includes('Hentai')||tempGenreArray.includes('Erotica')){
+                    tempNSFWflag=true;
+                }
+
+                if(tempNSFWflag===false && message.channel.nsfw===false){ //if not NSFW and channel is nsfw then
+                    exampleEmbed2.addFields(	
+                        {   
+                            name: 'Name:', 
+                            value: '`' + data.title + '`' 
+                        },
+                    )
+                }
+                else if(tempNSFWflag===true && message.channel.nsfw===true){ //if NSFW and channel is nsfw then
+                    exampleEmbed2.addFields(	
+                        {   
+                            name: 'Name:', 
+                            value: '`' + data.title + '`' 
+                        },
+                    )
+                }
+                else if(tempNSFWflag===false && message.channel.nsfw===true){ //if not NSFW and channel is nsfw then
+                    exampleEmbed2.addFields(	
+                        {   
+                            name: 'Name:', 
+                            value: '`' + data.title + '`' 
+                        },
+                    )
+                }
+
+
                 if(data.title.toLocaleLowerCase()==myOption.toLocaleLowerCase()&&myMapFlag==false){
                     myIndex=index;
                     myMapFlag=true;
@@ -68,13 +100,15 @@ module.exports.fetchManga = async(message, myOption, myType) => {
 
             let myGenreArray=[];
             let NSFWflag=false;
-            manga.data[myIndex].genres.map(genre=>{
-                myGenreArray.push(genre.name);
-            });
-
-            //check for hentai or erotica
-            if(myGenreArray.includes('Hentai')||myGenreArray.includes('Erotica')){
-                NSFWflag=true;
+            if(myMapFlag){
+                manga.data[myIndex].genres.map(genre=>{
+                    myGenreArray.push(genre.name);
+                });
+    
+                //check for hentai or erotica
+                if(myGenreArray.includes('Hentai')||myGenreArray.includes('Erotica')){
+                    NSFWflag=true;
+                }
             }
 
             let type = manga.data[myIndex].type;
