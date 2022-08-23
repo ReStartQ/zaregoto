@@ -76,6 +76,11 @@ module.exports.fetchAnime = async(message, myOption, myType) => {
                 NSFWflag=true;
             }
 
+            let mediaType = anime.data[myIndex].type;
+            if(mediaType==null){
+                mediaType='Unknown';
+            }
+
             let synopsis=anime.data[myIndex].synopsis;
             if(synopsis==null){
                 synopsis='No information available';
@@ -196,13 +201,13 @@ module.exports.fetchAnime = async(message, myOption, myType) => {
                     inline: true 
                 },
                 {   
-                    name: 'Studio', 
+                    name: 'Studios', 
                     value: studios, 
                     inline: true 
                 },
                 {   
-                    name: 'Source', 
-                    value: source, 
+                    name: 'Type', 
+                    value: mediaType, 
                     inline: true 
                 },
                 {   

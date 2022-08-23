@@ -53,6 +53,11 @@ module.exports.fetchRandomAnime = async(message, myType) => {
                 }
             }
 
+            let mediaType = anime.data.type;
+            if(mediaType==null){
+                mediaType='Unknown';
+            }
+
             let synopsis=anime.data.synopsis;
             if(synopsis==null){
                 synopsis='No information available';
@@ -172,13 +177,13 @@ module.exports.fetchRandomAnime = async(message, myType) => {
                     inline: true 
                 },
                 {   
-                    name: 'Studio', 
+                    name: 'Studios', 
                     value: studios, 
                     inline: true 
                 },
                 {   
-                    name: 'Source', 
-                    value: source, 
+                    name: 'Type', 
+                    value: mediaType, 
                     inline: true 
                 },
                 {   
