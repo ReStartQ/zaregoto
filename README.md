@@ -12,7 +12,7 @@ Get anime op/ed theme song videos, gifs, quotes, and more.
 Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?client_id=1001863523359531200&permissions=431644600384&scope=bot%20applications.commands).
 
 # Preview
-<img src="https://i.imgur.com/nNKVcYR.png" width="100%">
+<img src="https://i.imgur.com/Ap9rowb.png" width="100%">
 
 # Commands 
 **/anime `[name]`** - Lookup an anime. <br />
