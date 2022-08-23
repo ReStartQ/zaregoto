@@ -36,7 +36,7 @@ Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?c
 # Examples
 *The usage of option: indicates that the option has been selected or autocompleted.* <br />
 **/anime** `name: Bakemonogatari` <br />
-**/manga** `name: Zaregoto` <br />
+**/manga** `name: Zaregoto Series` <br />
 **/theme** `name: Bakemonogatari-OP1` <br />
 **/gif** `category: hug` <br />
 
