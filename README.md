@@ -12,7 +12,7 @@ Get anime op/ed theme song videos, gifs, quotes, and more.
 Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?client_id=1001863523359531200&permissions=431644600384&scope=bot%20applications.commands).
 
 # Preview
-<img src="https://i.imgur.com/nNKVcYR.png" width="100%">
+<img src="https://i.imgur.com/Ap9rowb.png" width="100%">
 
 # Commands 
 **/anime `[name]`** - Lookup an anime. <br />
@@ -31,7 +31,7 @@ Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?c
 # Option Values
 *These are the possible values that an [option] can be.*  <br />
 `[name]`: Any value accepted.  <br />
-`[category]`: hug, cuddle, dance, poke, happy, wink, smile, wave, cry, kiss, lick, pat, smug, bully, bonk, yeet, blush, highfive, handhold, nom, bite, glomp, slap, kill, kick, cringe  <br />
+`[category]`: hug, cuddle, dance, poke, happy, wink, smile, wave, cry, pat, smug, bully, bonk, yeet, blush, highfive, handhold, nom, bite, glomp, slap,  kick, cringe  <br />
 
 # Examples
 *The usage of option: indicates that the option has been selected or autocompleted.* <br />
