@@ -5,32 +5,31 @@ const { fetchAnimeImageGif } = require('./fetchAnimeImageGif');
 
 module.exports.fetchWaifuPicGif = async(message, myType) => {
     let myOption = waifuPicOptionsGifs[Math.floor(Math.random()*waifuPicOptionsGifs.length)];
-    if((Math.floor(Math.random()*20))>16){
-        await fetchAnimeImageGif(message, myType);
-    }
-    else{
-        try {
-            if(myType===0){
-                await fetch(urlWaifuPics+myOption)
-                .then(res => res.json())
-                .then(data => 
-                    message.channel.send(
-                        data.url
-                    ));
-                console.log(urlWaifuPics+myOption);      
-            }
-            else{
-                await fetch(urlWaifuPics+myOption)
-                .then(res => res.json())
-                .then(data => 
-                    message.reply(
-                        {content:data.url}
-                    ));
-                console.log(urlWaifuPics+myOption);   
-            }
-        } catch (error) {
-            console.log('Waifu.pics API is currently down');
+    try {
+        if(myType===0){
+            await fetch(urlWaifuPics+myOption)
+            .then(res => res.json())
+            .then(data => 
+                message.channel.send(
+                    data.url
+                ));
+            console.log(urlWaifuPics+myOption);      
         }
+        else{
+            await fetch(urlWaifuPics+myOption)
+            .then(res => res.json())
+            .then(data => 
+                message.reply(
+                    {content:data.url}
+                ));
+            console.log(urlWaifuPics+myOption);   
+        }
+    } catch (error) {
+        console.log('Waifu.pics API is currently down');
+        message.reply(
+            {content:'Try again later', ephemeral: true}
+        );
     }
+
 }
 

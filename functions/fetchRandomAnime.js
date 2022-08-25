@@ -10,19 +10,6 @@ module.exports.fetchRandomAnime = async(message, myType) => {
         try {
             let anime = await jikanjs.loadRandom('anime');
             console.log(anime);
-/*             if(anime.data.rating!=null){
-                while(anime.data.rating.startsWith('Rx')||anime.data.rating.startsWith('R+')){
-                    if((jikanSecondCounter>0&&jikanMinuteCounter>0)){
-                        jikanMinuteCounter-=1;
-                        jikanSecondCounter-=1;
-                        anime = await jikanjs.loadRandom('anime');
-                    }
-                    if(anime.data.rating==null){
-                        break; //breaks when it is null
-                    }
-                }
-            }
- */
             anime.data.genres.map(genre=>{
                 console.log(genre.name);
             })
@@ -32,8 +19,27 @@ module.exports.fetchRandomAnime = async(message, myType) => {
                     myGenreArray.push(genre.name);
                 })
                 console.log(myGenreArray);
-                if (message.channel.nsfw==false){ //if sfw channel
-                    while(myGenreArray.includes('Hentai')||myGenreArray.includes('Erotica')){
+                if (message.guild===null){ //if sfw channel
+                    while(myGenreArray.includes('Ecchi')||myGenreArray.includes('Hentai')||myGenreArray.includes('Erotica')){
+                        if((jikanSecondCounter>0&&jikanMinuteCounter>0)){
+                            jikanMinuteCounter-=1;
+                            jikanSecondCounter-=1;
+                            anime = await jikanjs.loadRandom('anime');
+                            myGenreArray=[];
+                            if(anime.data.genres==null){
+                                break;
+                            }
+                            anime.data.genres.map(genre=>{
+                                myGenreArray.push(genre.name);
+                            })
+                        }
+                        else{
+                            throw 'ran out of tokens'
+                        }
+                    }
+                }
+                else if (message.channel.nsfw==false){ //if sfw channel
+                    while(myGenreArray.includes('Ecchi')||myGenreArray.includes('Hentai')||myGenreArray.includes('Erotica')){
                         if((jikanSecondCounter>0&&jikanMinuteCounter>0)){
                             jikanMinuteCounter-=1;
                             jikanSecondCounter-=1;
@@ -210,7 +216,7 @@ module.exports.fetchRandomAnime = async(message, myType) => {
                 );
             }
             else{
-                message.reply({content:'Try again later'});
+                message.reply({content:'Try again in a minute', ephemeral: true});
             }
         }
     }
@@ -221,7 +227,7 @@ module.exports.fetchRandomAnime = async(message, myType) => {
             );
         }
         else{
-            message.reply({content:'Try again in a minute'});
+            message.reply({content:'Try again in a minute', ephemeral: true});
         }
     }
 }

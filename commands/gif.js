@@ -16,8 +16,6 @@ module.exports = {
                 { name: 'smile', value: 'smile' },
                 { name: 'wave', value: 'wave' },
                 { name: 'cry', value: 'cry' },
-                { name: 'kiss', value: 'kiss' },
-                { name: 'lick', value: 'lick' },
                 { name: 'pat', value: 'pat' },
                 { name: 'smug', value: 'smug' },
                 { name: 'bully', value: 'bully' },
@@ -29,7 +27,6 @@ module.exports = {
                 { name: 'nom', value: 'nom' },
                 { name: 'bite', value: 'bite' },
                 { name: 'glomp', value: 'glomp' },
-                { name: 'kill', value: 'kill' },
                 { name: 'kick', value: 'kick' },
                 { name: 'cringe', value: 'cringe' },
             )

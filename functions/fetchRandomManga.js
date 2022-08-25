@@ -19,8 +19,27 @@ module.exports.fetchRandomManga = async(message, myType) => {
                     myGenreArray.push(genre.name);
                 })
                 console.log(myGenreArray);
-                if (message.channel.nsfw==false){ //if sfw channel
-                    while(myGenreArray.includes('Hentai')||myGenreArray.includes('Erotica')){
+                if (message.guild===null){ //if sfw channel
+                    while(myGenreArray.includes('Ecchi')||myGenreArray.includes('Hentai')||myGenreArray.includes('Erotica')){
+                        if((jikanSecondCounter>0&&jikanMinuteCounter>0)){
+                            jikanMinuteCounter-=1;
+                            jikanSecondCounter-=1;
+                            manga = await jikanjs.loadRandom('manga');
+                            myGenreArray=[];
+                            if(manga.data.genres==null){
+                                break;
+                            }
+                            manga.data.genres.map(genre=>{
+                                myGenreArray.push(genre.name);
+                            })
+                        }
+                        else{
+                            throw 'ran out of tokens'
+                        }
+                    }
+                } 
+                else if (message.channel.nsfw==false){ //if sfw channel
+                    while(myGenreArray.includes('Ecchi')||myGenreArray.includes('Hentai')||myGenreArray.includes('Erotica')){
                         if((jikanSecondCounter>0&&jikanMinuteCounter>0)){
                             jikanMinuteCounter-=1;
                             jikanSecondCounter-=1;
@@ -171,7 +190,7 @@ module.exports.fetchRandomManga = async(message, myType) => {
                 );
             }
             else{
-                message.reply({content:'Try again later'});
+                message.reply({content:'Try again in a minute', ephemeral: true});
             }
         }
     }
@@ -182,7 +201,7 @@ module.exports.fetchRandomManga = async(message, myType) => {
             );
         }
         else{
-            message.reply({content:'Try again in a minute'});
+            message.reply({content:'Try again in a minute', ephemeral: true});
         }
     }
 }

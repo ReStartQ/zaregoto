@@ -13,7 +13,7 @@ module.exports.fetchTheme = async(message, myOption, myType) => {
                 let myIndex = 0;
                 let myFlag = false;
                 const exampleEmbed = new EmbedBuilder()
-                .setColor(0x2C3E50)
+                .setColor(0xA84300)
                 .setTitle('Opening/Ending Themes \n')
                 .setDescription('*Set the option for* **/theme [name]**.\n'+
                                 '__**Example:**__ \n'+
@@ -56,7 +56,7 @@ module.exports.fetchTheme = async(message, myOption, myType) => {
                         );
                     }
                     else{
-                        message.reply({embeds:[exampleEmbed]})
+                        message.reply({embeds:[exampleEmbed], ephemeral: true})
                     }
                 }
             });   

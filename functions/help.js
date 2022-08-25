@@ -29,7 +29,7 @@ module.exports.help = async(message, myType, visibility) => {
                     '**[name]**: ' +
                     'Any value accepted. \n' +
                     '**[category]**: '+
-                    'hug, cuddle, dance, poke, happy, wink, smile, wave, cry, kiss, lick, pat, smug, bully, bonk, yeet, blush, highfive, handhold, nom, bite, glomp, slap, kill, kick, cringe \n'
+                    'hug, cuddle, dance, poke, happy, wink, smile, wave, cry, pat, smug, bully, bonk, yeet, blush, highfive, handhold, nom, bite, glomp, slap, kick, cringe \n'
         },
         {
             name:   '__Examples:__',

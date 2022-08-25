@@ -47,8 +47,8 @@ module.exports.fetchRandomTheme = async(message, myType) => {
             }
             else{
                 message.reply(
-                    { content: 'Try again in a minute'}
-                )
+                    {content:'Try again in a minute', ephemeral: true}
+                );
             }
         }
     }

@@ -24,5 +24,8 @@ module.exports.fetchWaifuPicGifOption = async(message, option, myType) => {
         }
     } catch (error) {
         console.log('Waifu.pics API is currently down');
+        message.reply(
+            {content:'Try again in a minute', ephemeral: true}
+        );
     }
 }

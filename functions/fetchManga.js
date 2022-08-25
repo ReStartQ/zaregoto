@@ -11,7 +11,7 @@ module.exports.fetchManga = async(message, myOption, myType) => {
             console.log(manga);
 
             const exampleEmbed2 = new EmbedBuilder()
-            .setColor(0x2C3E50)
+            .setColor(0xA84300)
             .setTitle('Manga \n')
             .setDescription('*Set the option for* **/manga [name]**.\n'+
                             '__**Example:**__ \n'+
@@ -30,7 +30,7 @@ module.exports.fetchManga = async(message, myOption, myType) => {
 
 
             manga.data.map((data, index)=>{
-                let tempGenreArray=[];
+/*                 let tempGenreArray=[];
                 let tempNSFWflag=false;
 
                 data.genres.map(genre=>{
@@ -38,7 +38,7 @@ module.exports.fetchManga = async(message, myOption, myType) => {
                 });
     
                 //check for hentai or erotica
-                if(tempGenreArray.includes('Hentai')||tempGenreArray.includes('Erotica')){
+                if(tempGenreArray.includes('Ecchi')||tempGenreArray.includes('Hentai')||tempGenreArray.includes('Erotica')){
                     tempNSFWflag=true;
                 }
 
@@ -65,9 +65,15 @@ module.exports.fetchManga = async(message, myOption, myType) => {
                             value: '`' + data.title + '`' 
                         },
                     )
-                }
+                } */
 
-
+                exampleEmbed2.addFields(	
+                    {   
+                        name: 'Name:', 
+                        value: '`' + data.title + '`' 
+                    },
+                );
+                
                 if(data.title.toLocaleLowerCase()==myOption.toLocaleLowerCase()&&myMapFlag==false){
                     myIndex=index;
                     myMapFlag=true;
@@ -106,7 +112,7 @@ module.exports.fetchManga = async(message, myOption, myType) => {
                 });
     
                 //check for hentai or erotica
-                if(myGenreArray.includes('Hentai')||myGenreArray.includes('Erotica')){
+                if(myGenreArray.includes('Ecchi')||myGenreArray.includes('Hentai')||myGenreArray.includes('Erotica')){
                     NSFWflag=true;
                 }
             }
@@ -225,12 +231,21 @@ module.exports.fetchManga = async(message, myOption, myType) => {
                 },
             );
 
-            if (message.channel.nsfw) {
-                console.log("This channel is NSFW.");
+            if(message.guild===null){
+                console.log('null');
+                if(NSFWflag===true){
+                    console.log("This is DM.");
+                    throw "NSFW";
+                }
             }
-            else if(message.channel.nsfw===false && NSFWflag===true){
-                console.log("This channel is SFW.");
-                throw "NSFW";
+            else{
+                if (message.channel.nsfw) {
+                    console.log("This channel is NSFW.");
+                }
+                else if(message.channel.nsfw===false && NSFWflag===true){
+                    console.log("This channel is SFW.");
+                    throw "NSFW";
+                }
             }
             
             if(myMapFlag){
@@ -250,7 +265,7 @@ module.exports.fetchManga = async(message, myOption, myType) => {
                     );
                 }
                 else{
-                    message.reply({embeds:[exampleEmbed2]});
+                    message.reply({embeds:[exampleEmbed2], ephemeral: true});
                 }
             }
         } catch (error) {
@@ -263,7 +278,7 @@ module.exports.fetchManga = async(message, myOption, myType) => {
                     );
                 }
                 else{
-                    message.reply({content:'Please lookup this manga in a NSFW channel.'});
+                    message.reply({content:'Please lookup this manga in a NSFW channel.', ephemeral: true});
                 }
             }
             else{
@@ -273,7 +288,7 @@ module.exports.fetchManga = async(message, myOption, myType) => {
                     );
                 }
                 else{
-                    message.reply({content:'Unable to find what you were looking for on MyAnimeList. Be more specific on the name.'});
+                    message.reply({content:'Unable to find what you were looking for on MyAnimeList. Be more specific on the name.', ephemeral: true});
                 }
             }
         }
@@ -285,7 +300,7 @@ module.exports.fetchManga = async(message, myOption, myType) => {
             );
         }
         else{
-            message.reply({content:'Try again in a minute'});
+            message.reply({content:'Try again in a minute', ephemeral: true});
         }
     }
 }

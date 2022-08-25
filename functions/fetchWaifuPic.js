@@ -22,6 +22,12 @@ module.exports.fetchWaifuPic = async(message, myType) => {
             myOption = waifuPicOptions[0];
     }
     try {
+        if(message.guild===null){
+            throw 'NSFW';
+        }
+        else if(message.channel.nsfw===false){
+            throw 'NSFW';
+        }
         if(myType===0){
             await fetch(urlWaifuPics+myOption)
             .then(res => res.json())
@@ -41,5 +47,16 @@ module.exports.fetchWaifuPic = async(message, myType) => {
         console.log(urlWaifuPics+myOption);   
     } catch (error) {
         console.log('Waifu.pics API is currently down')
+        console.log(error)
+        if(error=='NSFW'){
+            message.reply(
+                {content:'Please use this command in a NSFW channel', ephemeral: true}
+            );
+        }
+        else{
+            message.reply(
+                {content:'Try again later', ephemeral: true}
+            );
+        }
     }
 }

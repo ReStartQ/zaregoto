@@ -155,6 +155,9 @@ module.exports.fetchAnimeImageGif = async(message, myType) => {
                 console.log('cuddle');
             } catch (error) {
                 console.log('Anime Images API is down');
+                message.reply(
+                    {content:'Try again later', ephemeral: true}
+                );
             }
             break;
         default:

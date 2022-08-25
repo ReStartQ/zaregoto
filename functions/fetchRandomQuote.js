@@ -7,35 +7,38 @@ module.exports.fetchRandomQuote = async(message, myType) => {
         try {
             await fetch(urlAnimeChan)
             .then(res => res.json())
-            .then(data => {
+            .then(async (data) => {
                 if(myType===0){
-                    message.channel.send(
-                        ">>> " + "\"" + data.quote.replaceAll("\"","\'") + "\"" + '\n' + '\n' + '- ' + data.character  + ',  '+'*'+data.anime+'*' 
+                    await message.channel.send(
+                        ">>> " + '__**' + data.anime + '**__\n' + "\"" + data.quote.replaceAll("\"","\'") + "\"" + '\n' + '\n' + '- ' + data.character  
                     );
                 }
                 else{
-                    message.reply({
-                        content:">>> " + "\"" + data.quote.replaceAll("\"","\'") + "\"" + '\n' + '\n' + '- ' + data.character  + ',  '+'*'+data.anime+'*' 
+                    await message.reply({
+                        content:">>> " + '__**' + data.anime + '**__\n' + "\"" + data.quote.replaceAll("\"","\'") + "\"" + '\n' + '\n' + '- ' + data.character  
                     });
                 }
                 animeChanQuotes.push(
-                    ">>> " + "\"" + data.quote.replaceAll("\"","\'") + "\"" + '\n' + '\n' + '- ' + data.character  + ',  '+'*'+data.anime+'*' 
+                    ">>> " + '__**' + data.anime + '**__\n' + "\"" + data.quote.replaceAll("\"","\'") + "\"" + '\n' + '\n' + '- ' + data.character 
                 );
                 console.log(animeChanQuotes);
             });   
         } catch (error) {
             console.log('Anime Chan API is down');
+            await message.reply(
+                {content:'Try again later', ephemeral: true}
+            );
         }
     }
     else{
         if(animeChanQuotes.length>0){
             if(myType===0){
-                message.channel.send(
+                await message.channel.send(
                     animeChanQuotes[Math.floor(Math.random()*animeChanQuotes.length)]
                 );
             }
             else{
-                message.reply(
+                await message.reply(
                     {content: animeChanQuotes[Math.floor(Math.random()*animeChanQuotes.length)]}
                 );
             }
