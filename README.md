@@ -31,7 +31,7 @@ Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?c
 # Option Values
 *These are the possible values that an [option] can be.*  <br />
 `[name]`: Any value accepted.  <br />
-`[category]`: hug, cuddle, dance, poke, happy, wink, smile, wave, cry, kiss, lick, pat, smug, bully, bonk, yeet, blush, highfive, handhold, nom, bite, glomp, slap, kill, kick, cringe  <br />
+`[category]`: hug, cuddle, dance, poke, happy, wink, smile, wave, cry, pat, smug, bully, bonk, yeet, blush, highfive, handhold, nom, bite, glomp, slap,  kick, cringe  <br />
 
 # Examples
 *The usage of option: indicates that the option has been selected or autocompleted.* <br />
