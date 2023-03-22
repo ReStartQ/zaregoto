@@ -28,7 +28,7 @@ module.exports.fetchAnimeFact = async(message, myType) => {
         } catch (error) {
             console.log('Animu API down');
             await message.reply(
-                {content:'Try again in a minute', ephemeral: true}
+                {content:'Try again later', ephemeral: true}
             );
         }
     }

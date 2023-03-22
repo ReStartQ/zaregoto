@@ -7,7 +7,11 @@ module.exports.fetchManga = async(message, myOption, myType) => {
         jikanMinuteCounter-=1;
         jikanSecondCounter-=1;
         try {
-            let manga = await jikanjs.search('manga', myOption, 25); 
+            let myOptionRevised = myOption;
+            if (myOption.startsWith('\`') && myOption.endsWith('\`')){
+                myOptionRevised = myOption.substring(1, myOption.length-1);
+            }
+            let manga = await jikanjs.search('manga', myOptionRevised, 25); 
             console.log(manga);
 
             const exampleEmbed2 = new EmbedBuilder()
@@ -17,7 +21,7 @@ module.exports.fetchManga = async(message, myOption, myType) => {
                             '__**Example:**__ \n'+
                             '*The usage of* `name:` *indicates that the option has been selected or autocompleted.* \n' +
                             '**/manga** `name: Bakemonogatari`\n\n'+
-                            '*The following results are based off the name that you provided:* ' + '**'+ myOption +'**'+ '\n')
+                            '*The following results are based off the name that you provided:* ' + '**'+ myOptionRevised +'**'+ '\n')
             .setFooter({ text: 'Only shows up to the first 25 manga results. \n' + 'For more accurate search results, be more specific with the manga name.'});
 
             if(manga.data[0]===undefined){
@@ -74,14 +78,14 @@ module.exports.fetchManga = async(message, myOption, myType) => {
                     },
                 );
                 
-                if(data.title.toLocaleLowerCase()==myOption.toLocaleLowerCase()&&myMapFlag==false){
+                if(data.title.toLocaleLowerCase()==myOptionRevised.toLocaleLowerCase()&&myMapFlag==false){
                     myIndex=index;
                     myMapFlag=true;
                 }
-                else if(data.title.toLocaleLowerCase().includes(myOption)&&myMapFlag==false){
+                else if(data.title.toLocaleLowerCase().includes(myOptionRevised)&&myMapFlag==false){
                     myIndex=index;
                 }
-                else if(data.title.toLocaleLowerCase()==myOption.toLocaleLowerCase()&&myMapFlag==true){ //check for duplicates and if so, go with more popular one (lower number)
+                else if(data.title.toLocaleLowerCase()==myOptionRevised.toLocaleLowerCase()&&myMapFlag==true){ //check for duplicates and if so, go with more popular one (lower number)
 
                     let tempPopularity = data.popularity;
                     let currentPopularity = manga.data[myIndex].popularity;

@@ -22,12 +22,13 @@ module.exports.fetchWaifuPic = async(message, myType) => {
             myOption = waifuPicOptions[0];
     }
     try {
-        if(message.guild===null){
+        /*if(message.guild===null){
             throw 'NSFW';
         }
         else if(message.channel.nsfw===false){
             throw 'NSFW';
         }
+        */
         if(myType===0){
             await fetch(urlWaifuPics+myOption)
             .then(res => res.json())

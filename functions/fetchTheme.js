@@ -6,7 +6,12 @@ module.exports.fetchTheme = async(message, myOption, myType) => {
     if(animeThemesCounter>0){
         animeThemesCounter-=1;
         try {
-            await fetch(urlAnimeThemes+myOption)
+            let myOptionRevised = myOption;
+            if (myOption.startsWith('\`') && myOption.endsWith('\`')){
+                myOptionRevised = myOption.substring(1, myOption.length-1);
+            }
+
+            await fetch(urlAnimeThemes+myOptionRevised)
             .then( res => res.json() )
             .then( data => {
                 //iterate through and if there is a match return the result. Else return an embed object menu.
@@ -19,7 +24,7 @@ module.exports.fetchTheme = async(message, myOption, myType) => {
                                 '__**Example:**__ \n'+
                                 '*The usage of* `name:` *indicates that the option has been selected or autocompleted.* \n' +
                                 '**/theme** `name: Bakemonogatari-OP1`\n\n'+
-                                '*The following results are based off the name that you provided:* ' + '**'+ myOption +'**'+ '\n')
+                                '*The following results are based off the name that you provided:* ' + '**'+ myOptionRevised +'**'+ '\n')
                 .setFooter({ text: 'Only shows up to the first 15 anime op/ed theme results. \n' + 'For more accurate search results, be more specific with the anime name.'});
 
                 console.log(data);
@@ -30,7 +35,7 @@ module.exports.fetchTheme = async(message, myOption, myType) => {
                             value: '`' + video.filename + '`' 
                         },
                     )
-                    if(myOption.toLocaleLowerCase().replaceAll(' ', '')===video.filename.toLocaleLowerCase().replaceAll(' ', '')){
+                    if(myOptionRevised.toLocaleLowerCase().replaceAll(' ', '')===video.filename.toLocaleLowerCase().replaceAll(' ', '')){
                         console.log('found');
                         myFlag=true;
                         myIndex=index;
