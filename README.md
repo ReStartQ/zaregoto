@@ -8,7 +8,7 @@ Get anime op/ed theme song videos, gifs, quotes, and more.
 <br/>
 
 
-# Getting Started
+# Getting Started (Invitation to your discord server)
 Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?client_id=1001863523359531200&permissions=431644600384&scope=bot%20applications.commands).
 
 # Preview
