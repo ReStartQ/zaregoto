@@ -7,10 +7,6 @@ Lookup an anime or manga.
 Get anime op/ed theme song videos, gifs, quotes, and more. 
 <br/>
 
-
-# Getting Started
-Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?client_id=1001863523359531200&permissions=431644600384&scope=bot%20applications.commands).
-
 # Preview
 <img src="https://i.imgur.com/Ap9rowb.png" width="100%">
 
@@ -39,6 +35,9 @@ Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?c
 **/manga** `name: Zaregoto Series` <br />
 **/theme** `name: Bakemonogatari-OP1` <br />
 **/gif** `category: hug` <br />
+
+# Getting Started 
+Invite Zaregoto to your server [here](https://discord.com/api/oauth2/authorize?client_id=1001863523359531200&permissions=431644600384&scope=bot%20applications.commands).
 
 # Questions?
 Join the Zaregoto support server [here](https://discord.gg/YdvM53rmJX)
