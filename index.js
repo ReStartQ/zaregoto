@@ -77,6 +77,21 @@ for(const file of eventFiles){
     }
 }
 
+/* // added to reconnect
+client.on('disconnect', function(erMsg, code) {
+    console.log('----- Bot disconnected from Discord with code', code, 'for reason:', erMsg, '-----');
+    let date_ob = new Date();
+    const content = date_ob.toString();
+    fs.writeFile('/discordboterrors.txt', content, err => {
+        if (err) {
+            console.error(err);
+        }
+        // file written successfully
+        });
+    client.connect();
+  }); */
+
+
 //Jikan API for MAL
 //Per Minute 60 requests
 //Per Second 3 requests
