@@ -4,12 +4,14 @@ const AnimeFact = require("anime-facts");
 //dotenv
 config();
 const AnimeFactAPI = new AnimeFact(process.env.ANIME_FACT_TOKEN);
+const FactClient = require("waifu.it");
+const FactAPI = new FactClient(process.env.ANIME_FACT_TOKEN);
 
 module.exports.fetchAnimeFact = async (message, myType) => {
   if (animuCounter > 0) {
     animuCounter -= 1;
     try {
-      await AnimeFactAPI.getFact().then(async (res) => {
+      await FactAPI.getFact().then(async (res) => {
         if (myType == 0) {
           await message.channel.send(">>> " + res.fact);
         } else {

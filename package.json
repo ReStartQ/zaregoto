@@ -17,9 +17,11 @@
     "@mateoaranda/jikanjs": "^1.2.4",
     "anime-facts": "^6.3.14",
     "anime-images-api": "^2.0.0",
+    "axios": "^1.4.0",
     "discord-api-types": "^0.36.3",
     "discord.js": "^14.0.3",
     "dotenv": "^16.0.1",
-    "random-anime-quotes": "^1.0.1"
+    "random-anime-quotes": "^1.0.1",
+    "waifu.it": "^1.1.1"
   }
 }
