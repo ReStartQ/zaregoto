@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const urlAnimeChan = "https://animechan.vercel.app/api/random";
+const urlAnimeChan = "https://animechan.xyz/api/random";
 
 module.exports.fetchRandomQuote = async(message, myType) => {
     if(animeChanCounter>0){
