@@ -264,7 +264,7 @@ module.exports.fetchAnime = async(message, myOption, myType) => {
                 console.log('null');
                 if(NSFWflag===true){
                     console.log("This is DM.");
-                    throw "NSFW";
+                    // throw "NSFW";
                 }
             }
             else{
@@ -273,7 +273,7 @@ module.exports.fetchAnime = async(message, myOption, myType) => {
                 }
                 else if(message.channel.nsfw===false && NSFWflag===true){
                     console.log("This channel is SFW.");
-                    throw "NSFW";
+                    // throw "NSFW";
                 }
             }
 
